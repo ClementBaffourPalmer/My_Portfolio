@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowUp, Github, Linkedin, Mail, ShieldCheck } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
@@ -36,7 +37,7 @@ export const Footer: React.FC<FooterProps> = ({ darkMode }) => {
             </div>
 
             <p className="text-xs text-muted max-w-sm leading-relaxed">
-              Full-Stack Developer, Software Engineer & Aspiring Cybersecurity Specialist. Focused on robust API design, accessible user experiences, and defensible architectures.
+              Full-Stack Developer, Software Engineer & Aspiring Cybersecurity Specialist. Documenting thoughts, technology discoveries, and growth in the Journal.
             </p>
 
             <div className="flex items-center space-x-3 pt-1">
@@ -77,28 +78,31 @@ export const Footer: React.FC<FooterProps> = ({ darkMode }) => {
             </p>
             <ul className="grid grid-cols-2 gap-2 text-xs">
               <li>
-                <a href="#home" className="hover:text-electric transition-colors">Home</a>
+                <Link to="/" className="hover:text-electric transition-colors">Home</Link>
               </li>
               <li>
-                <a href="#about" className="hover:text-electric transition-colors">About</a>
+                <Link to="/#about" className="hover:text-electric transition-colors">About</Link>
               </li>
               <li>
-                <a href="#skills" className="hover:text-electric transition-colors">Skills</a>
+                <Link to="/#skills" className="hover:text-electric transition-colors">Skills</Link>
               </li>
               <li>
-                <a href="#projects" className="hover:text-electric transition-colors">Projects</a>
+                <Link to="/#projects" className="hover:text-electric transition-colors">Projects</Link>
               </li>
               <li>
-                <a href="#experience" className="hover:text-electric transition-colors">Experience</a>
+                <Link to="/#experience" className="hover:text-electric transition-colors">Experience</Link>
               </li>
               <li>
-                <a href="#security" className="hover:text-electric transition-colors">Cybersecurity</a>
+                <Link to="/#security" className="hover:text-electric transition-colors">Cybersecurity</Link>
               </li>
               <li>
-                <a href="#contact" className="hover:text-electric transition-colors">Contact</a>
+                <Link to="/blog" className="text-electric font-semibold hover:underline font-mono">Journal (Blog)</Link>
               </li>
               <li>
-                <a href={personalInfo.cvPath} download className="text-electric hover:underline font-mono">CV (PDF)</a>
+                <Link to="/#contact" className="hover:text-electric transition-colors">Contact</Link>
+              </li>
+              <li>
+                <a href={personalInfo.cvPath} download className="text-muted hover:text-electric font-mono">CV (PDF)</a>
               </li>
             </ul>
           </div>

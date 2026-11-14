@@ -1,21 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { About } from './components/About';
-import { Skills } from './components/Skills';
-import { Projects } from './components/Projects';
-import { Cybersecurity } from './components/Cybersecurity';
-import { Experience } from './components/Experience';
-import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import { HomePage } from './pages/HomePage';
+import { BlogPage } from './pages/BlogPage';
+import { BlogPostPage } from './pages/BlogPostPage';
 
-export const App: React.FC = () => {
+const AppContent: React.FC = () => {
   const [darkMode, setDarkMode] = useState<boolean>(() => {
     const savedTheme = localStorage.getItem('cp_theme');
     if (savedTheme) {
       return savedTheme === 'dark';
     }
-    return true; // Default to deep charcoal dark mode as requested
+    return true; // Default to deep charcoal dark mode
   });
 
   useEffect(() => {
@@ -39,16 +36,23 @@ export const App: React.FC = () => {
     >
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       <main id="main-content">
-        <Hero darkMode={darkMode} />
-        <About darkMode={darkMode} />
-        <Skills darkMode={darkMode} />
-        <Projects darkMode={darkMode} />
-        <Experience darkMode={darkMode} />
-        <Cybersecurity darkMode={darkMode} />
-        <Contact darkMode={darkMode} />
+        <Routes>
+          <Route path="/" element={<HomePage darkMode={darkMode} />} />
+          <Route path="/blog" element={<BlogPage darkMode={darkMode} />} />
+          <Route path="/blog/:slug" element={<BlogPostPage darkMode={darkMode} />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
       </main>
       <Footer darkMode={darkMode} />
     </div>
+  );
+};
+
+export const App: React.FC = () => {
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
   );
 };
 

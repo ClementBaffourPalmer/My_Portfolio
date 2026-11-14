@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
@@ -7,49 +8,85 @@ interface NavbarProps {
   setDarkMode: (value: boolean) => void;
 }
 
-const navLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Security', href: '#security' },
-  { name: 'Contact', href: '#contact' },
-];
-
 export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHomePage = location.pathname === '/';
+  const isBlog = location.pathname.startsWith('/blog');
+
+  const navLinks = [
+    { name: 'Home', section: 'home', path: '/' },
+    { name: 'About', section: 'about', path: '/#about' },
+    { name: 'Skills', section: 'skills', path: '/#skills' },
+    { name: 'Projects', section: 'projects', path: '/#projects' },
+    { name: 'Experience', section: 'experience', path: '/#experience' },
+    { name: 'Security', section: 'security', path: '/#security' },
+    { name: 'Blog', section: 'blog', path: '/blog' },
+    { name: 'Contact', section: 'contact', path: '/#contact' },
+  ];
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      // Section spy
-      const sections = navLinks.map(link => link.href.substring(1));
-      const scrollPosition = window.scrollY + 120;
+      if (isHomePage) {
+        const sections = ['home', 'about', 'skills', 'projects', 'experience', 'security', 'journal', 'contact'];
+        const scrollPosition = window.scrollY + 140;
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = document.getElementById(sections[i]);
-        if (section) {
-          const top = section.offsetTop;
-          if (scrollPosition >= top) {
-            setActiveSection(sections[i]);
-            break;
+        for (let i = sections.length - 1; i >= 0; i--) {
+          const section = document.getElementById(sections[i]);
+          if (section) {
+            const top = section.offsetTop;
+            if (scrollPosition >= top) {
+              setActiveSection(sections[i] === 'journal' ? 'blog' : sections[i]);
+              break;
+            }
           }
         }
+      } else if (isBlog) {
+        setActiveSection('blog');
       }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isHomePage, isBlog]);
+
+  const handleNavClick = (link: typeof navLinks[0], e: React.MouseEvent) => {
+    setIsOpen(false);
+
+    if (link.section === 'blog') {
+      navigate('/blog');
+      return;
+    }
+
+    if (isHomePage) {
+      e.preventDefault();
+      const element = document.getElementById(link.section);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        setActiveSection(link.section);
+      }
+    } else {
+      // Navigate to homepage with anchor
+      navigate(`/#${link.section}`);
+      setTimeout(() => {
+        const element = document.getElementById(link.section);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  };
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
+        scrolled || !isHomePage
           ? darkMode
             ? 'bg-charcoal/90 backdrop-blur-md border-b border-panel-border/80 py-3 shadow-lg'
             : 'bg-white/90 backdrop-blur-md border-b border-light-border/80 py-3 shadow-sm'
@@ -58,9 +95,10 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
+          
           {/* Logo / Monogram */}
-          <a
-            href="#home"
+          <Link
+            to="/"
             className="flex items-center space-x-2 group focus:outline-none focus-visible:ring-2 focus-visible:ring-electric rounded"
             aria-label="Clement Palmer Home"
           >
@@ -76,19 +114,19 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
                 {personalInfo.displayName}
               </span>
               <span className="block text-[11px] font-mono text-muted tracking-wider uppercase">
-                Software Engineer
+                {isBlog ? 'Journal & Essays' : 'Software Engineer'}
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
+          <nav className="hidden md:flex items-center space-x-1 lg:space-x-1.5">
             {navLinks.map((link) => {
-              const isActive = activeSection === link.href.substring(1);
+              const isActive = (isHomePage && activeSection === link.section) || (isBlog && link.section === 'blog');
               return (
-                <a
+                <button
                   key={link.name}
-                  href={link.href}
+                  onClick={(e) => handleNavClick(link, e)}
                   className={`px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-200 ${
                     isActive
                       ? darkMode
@@ -96,11 +134,11 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
                         : 'text-charcoal bg-light-subtle border border-light-border font-semibold shadow-xs'
                       : darkMode
                       ? 'text-muted hover:text-white hover:bg-panel/50'
-                      : 'text-muted-light hover:text-charcoal hover:bg-light-subtle/60'
+                      : 'text-neutral-600 hover:text-charcoal hover:bg-light-subtle/60'
                   }`}
                 >
                   {link.name}
-                </a>
+                </button>
               );
             })}
           </nav>
@@ -156,13 +194,12 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
           }`}
         >
           {navLinks.map((link) => {
-            const isActive = activeSection === link.href.substring(1);
+            const isActive = (isHomePage && activeSection === link.section) || (isBlog && link.section === 'blog');
             return (
-              <a
+              <button
                 key={link.name}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className={`block px-4 py-2.5 rounded-lg text-base font-medium transition-colors ${
+                onClick={(e) => handleNavClick(link, e)}
+                className={`w-full text-left px-4 py-2.5 rounded-lg text-base font-medium transition-colors ${
                   isActive
                     ? darkMode
                       ? 'bg-panel text-electric font-semibold border border-panel-border'
@@ -173,7 +210,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
                 }`}
               >
                 {link.name}
-              </a>
+              </button>
             );
           })}
           <div className="pt-3 border-t border-panel-border/50">
