@@ -1,0 +1,194 @@
+import React, { useState, useEffect } from 'react';
+import { Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-react';
+import { personalInfo } from '../data/portfolioData';
+
+interface NavbarProps {
+  darkMode: boolean;
+  setDarkMode: (value: boolean) => void;
+}
+
+const navLinks = [
+  { name: 'Home', href: '#home' },
+  { name: 'About', href: '#about' },
+  { name: 'Skills', href: '#skills' },
+  { name: 'Projects', href: '#projects' },
+  { name: 'Experience', href: '#experience' },
+  { name: 'Security', href: '#security' },
+  { name: 'Contact', href: '#contact' },
+];
+
+export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+
+      // Section spy
+      const sections = navLinks.map(link => link.href.substring(1));
+      const scrollPosition = window.scrollY + 120;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section) {
+          const top = section.offsetTop;
+          if (scrollPosition >= top) {
+            setActiveSection(sections[i]);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? darkMode
+            ? 'bg-charcoal/90 backdrop-blur-md border-b border-panel-border/80 py-3 shadow-lg'
+            : 'bg-white/90 backdrop-blur-md border-b border-light-border/80 py-3 shadow-sm'
+          : 'bg-transparent py-5'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between">
+          {/* Logo / Monogram */}
+          <a
+            href="#home"
+            className="flex items-center space-x-2 group focus:outline-none focus-visible:ring-2 focus-visible:ring-electric rounded"
+            aria-label="Clement Palmer Home"
+          >
+            <div className="w-10 h-10 rounded-lg bg-panel border border-panel-border flex items-center justify-center font-bold text-lg tracking-tight transition-transform duration-200 group-hover:scale-105 shadow-sm">
+              <span className={darkMode ? 'text-white' : 'text-charcoal'}>C</span>
+              <span className="text-electric">P</span>
+              <span className="text-electric text-xs -ml-0.5">.</span>
+            </div>
+            <div className="hidden sm:block text-left">
+              <span className={`block text-sm font-semibold tracking-tight transition-colors ${
+                darkMode ? 'text-white group-hover:text-electric' : 'text-charcoal group-hover:text-electric'
+              }`}>
+                {personalInfo.displayName}
+              </span>
+              <span className="block text-[11px] font-mono text-muted tracking-wider uppercase">
+                Software Engineer
+              </span>
+            </div>
+          </a>
+
+          {/* Desktop Navigation Links */}
+          <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.substring(1);
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className={`px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-200 ${
+                    isActive
+                      ? darkMode
+                        ? 'text-white bg-panel border border-panel-border font-semibold shadow-xs'
+                        : 'text-charcoal bg-light-subtle border border-light-border font-semibold shadow-xs'
+                      : darkMode
+                      ? 'text-muted hover:text-white hover:bg-panel/50'
+                      : 'text-muted-light hover:text-charcoal hover:bg-light-subtle/60'
+                  }`}
+                >
+                  {link.name}
+                </a>
+              );
+            })}
+          </nav>
+
+          {/* Action Area: Theme Toggle & CV Download */}
+          <div className="flex items-center space-x-3">
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              className={`p-2 rounded-lg border transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-electric ${
+                darkMode
+                  ? 'bg-panel border-panel-border text-muted hover:text-white hover:border-neutral-600'
+                  : 'bg-light-subtle border-light-border text-neutral-600 hover:text-charcoal hover:border-neutral-400'
+              }`}
+              aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+              title={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+            >
+              {darkMode ? <Sun size={18} className="text-amber-400" /> : <Moon size={18} className="text-charcoal" />}
+            </button>
+
+            <a
+              href={personalInfo.cvPath}
+              download="Clement_Palmer_CV.pdf"
+              className="hidden lg:inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider bg-electric hover:bg-electric-hover text-white transition-all duration-200 shadow-sm hover:shadow-blue-glow"
+            >
+              <span>Download CV</span>
+              <ArrowUpRight size={14} />
+            </a>
+
+            {/* Mobile Hamburger Button */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className={`md:hidden p-2 rounded-lg border transition-colors ${
+                darkMode
+                  ? 'bg-panel border-panel-border text-white'
+                  : 'bg-light-subtle border-light-border text-charcoal'
+              }`}
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isOpen}
+            >
+              {isOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Drawer Menu */}
+      {isOpen && (
+        <div
+          className={`md:hidden border-b px-4 pt-3 pb-6 space-y-2 transition-all ${
+            darkMode
+              ? 'bg-charcoal/95 border-panel-border backdrop-blur-md'
+              : 'bg-white/95 border-light-border backdrop-blur-md'
+          }`}
+        >
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.href.substring(1);
+            return (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className={`block px-4 py-2.5 rounded-lg text-base font-medium transition-colors ${
+                  isActive
+                    ? darkMode
+                      ? 'bg-panel text-electric font-semibold border border-panel-border'
+                      : 'bg-light-subtle text-electric font-semibold border border-light-border'
+                    : darkMode
+                    ? 'text-muted hover:text-white hover:bg-panel/50'
+                    : 'text-neutral-600 hover:text-charcoal hover:bg-light-subtle'
+                }`}
+              >
+                {link.name}
+              </a>
+            );
+          })}
+          <div className="pt-3 border-t border-panel-border/50">
+            <a
+              href={personalInfo.cvPath}
+              download="Clement_Palmer_CV.pdf"
+              onClick={() => setIsOpen(false)}
+              className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 rounded-lg text-sm font-semibold bg-electric hover:bg-electric-hover text-white transition-colors"
+            >
+              <span>Download Full CV (PDF)</span>
+              <ArrowUpRight size={16} />
+            </a>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+};

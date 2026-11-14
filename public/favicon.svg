@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="14" fill="#111318" />
+  <rect x="1.5" y="1.5" width="61" height="61" rx="12.5" fill="none" stroke="#2878FF" stroke-width="1.5" stroke-opacity="0.4" />
+  <text x="14" y="44" font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-weight="800" font-size="28" fill="#FFFFFF" letter-spacing="-1">C</text>
+  <text x="32" y="44" font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif" font-weight="800" font-size="28" fill="#2878FF" letter-spacing="-1">P</text>
+  <circle cx="50" cy="42" r="3.5" fill="#2878FF" />
+</svg>
