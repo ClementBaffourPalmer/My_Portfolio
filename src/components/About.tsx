@@ -7,8 +7,6 @@ interface AboutProps {
 }
 
 export const About: React.FC<AboutProps> = ({ darkMode }) => {
-  const education = educationData[0];
-
   return (
     <section id="about" className="py-20 lg:py-28 relative border-t subtle-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,7 +43,7 @@ export const About: React.FC<AboutProps> = ({ darkMode }) => {
             </div>
           </div>
 
-          {/* RIGHT: Two Short Paragraphs & Concise Credential (8 Cols) */}
+          {/* RIGHT: Two Short Paragraphs & Academic Credentials (8 Cols) */}
           <div className="lg:col-span-8 space-y-6">
             
             <div className="space-y-4 text-base sm:text-lg leading-relaxed">
@@ -59,29 +57,56 @@ export const About: React.FC<AboutProps> = ({ darkMode }) => {
               ))}
             </div>
 
-            {/* Academic Credential Capsule */}
+            {/* Academic Credentials Grid */}
             <div className={`pt-6 border-t ${darkMode ? 'border-panel-border/60' : 'border-light-border/80'}`}>
-              <div className={`p-4 rounded-xl border flex flex-col sm:flex-row sm:items-center justify-between gap-3 ${
-                darkMode ? 'bg-panel/50 border-panel-border' : 'bg-white border-light-border shadow-xs'
+              <p className={`text-[11px] font-mono uppercase tracking-wider mb-3 ${
+                darkMode ? 'text-neutral-400' : 'text-neutral-500 font-semibold'
               }`}>
-                <div className="flex items-center space-x-3">
-                  <div className="p-2 rounded-lg bg-electric/10 text-electric shrink-0">
-                    <GraduationCap size={20} />
-                  </div>
-                  <div>
-                    <h3 className={`text-sm font-bold ${darkMode ? 'text-white' : 'text-charcoal'}`}>
-                      {education.degree}
-                    </h3>
-                    <p className={`text-xs font-mono ${darkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>
-                      {education.institution}
-                    </p>
-                  </div>
-                </div>
+                Academic Background
+              </p>
 
-                <div className="flex items-center space-x-1.5 text-xs font-mono text-neutral-500 pl-11 sm:pl-0">
-                  <MapPin size={13} className="text-electric" />
-                  <span>{education.location}</span>
-                </div>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {educationData.map((edu) => (
+                  <div
+                    key={edu.institution}
+                    className={`p-4 rounded-xl border flex flex-col justify-between transition-all duration-200 hover:border-neutral-500 ${
+                      darkMode ? 'bg-panel/50 border-panel-border' : 'bg-white border-light-border shadow-xs'
+                    }`}
+                  >
+                    <div>
+                      <div className="flex items-center justify-between gap-2 mb-2">
+                        <div className="p-1.5 rounded-lg bg-electric/10 text-electric shrink-0">
+                          <GraduationCap size={16} />
+                        </div>
+                        <span className={`text-[10px] font-mono px-2 py-0.5 rounded border font-semibold ${
+                          edu.period === 'In Progress'
+                            ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
+                            : darkMode
+                            ? 'bg-charcoal border-panel-border text-neutral-400'
+                            : 'bg-light-subtle border-light-border text-neutral-600'
+                        }`}>
+                          {edu.period}
+                        </span>
+                      </div>
+
+                      <h3 className={`text-sm font-bold leading-snug mb-1 ${
+                        darkMode ? 'text-white' : 'text-charcoal'
+                      }`}>
+                        {edu.degree}
+                      </h3>
+                      <p className={`text-xs font-mono mb-3 ${
+                        darkMode ? 'text-neutral-400' : 'text-neutral-600'
+                      }`}>
+                        {edu.institution}
+                      </p>
+                    </div>
+
+                    <div className="flex items-center space-x-1.5 text-[11px] font-mono text-neutral-500 pt-2 border-t border-panel-border/30">
+                      <MapPin size={11} className="text-electric shrink-0" />
+                      <span className="truncate">{edu.location}</span>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
