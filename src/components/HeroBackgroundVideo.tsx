@@ -44,9 +44,8 @@ export const HeroBackgroundVideo: React.FC<HeroBackgroundVideoProps> = ({ darkMo
           onCanPlay={handleVideoReady}
           onPlaying={handleVideoReady}
           onError={() => setVideoError(true)}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-            videoLoaded ? (darkMode ? 'opacity-70' : 'opacity-40') : 'opacity-0'
-          }`}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${videoLoaded ? (darkMode ? 'opacity-70' : 'opacity-40') : 'opacity-0'
+            }`}
         >
           <source src="/videos/hero-background.mp4" type="video/mp4" />
         </video>
@@ -74,20 +73,18 @@ export const HeroBackgroundVideo: React.FC<HeroBackgroundVideoProps> = ({ darkMo
 
       {/* Theme-aware contrast overlay guaranteeing 100% text readability */}
       <div
-        className={`absolute inset-0 transition-colors duration-300 ${
-          darkMode
+        className={`absolute inset-0 transition-colors duration-300 ${darkMode
             ? 'bg-gradient-to-r from-charcoal via-charcoal/80 to-charcoal/35'
             : 'bg-gradient-to-r from-light-bg via-light-bg/85 to-light-bg/40'
-        }`}
+          }`}
       />
 
       {/* Soft bottom transition vignette into subsequent section */}
       <div
-        className={`absolute bottom-0 inset-x-0 h-32 pointer-events-none ${
-          darkMode
+        className={`absolute bottom-0 inset-x-0 h-32 pointer-events-none ${darkMode
             ? 'bg-gradient-to-t from-charcoal via-charcoal/50 to-transparent'
             : 'bg-gradient-to-t from-light-bg via-light-bg/50 to-transparent'
-        }`}
+          }`}
       />
 
       {/* Subtle Electric Blue ambient glow in background right quadrant */}

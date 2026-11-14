@@ -7,7 +7,7 @@ export const personalInfo = {
   headline: "Full-Stack Developer & Software Engineer",
   intro: "I'm a full-stack developer interested in building practical software solutions and exploring how technology can solve real-world problems. My interests include backend development, software engineering and cybersecurity.",
   aboutBio: [
-    "I am a software developer holding a Bachelor of Science in Information and Communication Technology Education from the University of Education, Winneba (UEW), Ghana, and currently studying a Bachelor of Science in Computer Science at University of the People. My journey into software development began with a fascination for computing systems and has evolved into engineering practical full-stack web applications that solve tangible real-world problems.",
+    "I am a software developer holding a Bachelor of Science in Information and Communication Technology Education from the University of Education, Winneba (UEW), Ghana, and currently studying a Bachelor's Degree in Computer Science at University of the People. My journey into software development began with a fascination for computing systems and has evolved into engineering practical full-stack web applications that solve tangible real-world problems.",
     "My technical work centers on backend development, scalable REST APIs, and relational databases using Python, Django, and React. Alongside full-stack engineering, I have a growing focus on cybersecurity and ethical hacking—prioritizing defensible application architecture, secure authentication, and resilient software boundaries."
   ],
   status: "Available for Software Engineering Opportunities",
@@ -248,7 +248,7 @@ export const experienceData: ExperienceItem[] = [
 
 export const educationData: EducationItem[] = [
   {
-    degree: "Bachelor of Science in Computer Science",
+    degree: "Bachelor's Degree in Computer Science",
     institution: "University of the People",
     location: "Pasadena, CA (Online)",
     period: "In Progress",

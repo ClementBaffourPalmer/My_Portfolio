@@ -175,8 +175,8 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ darkMode }) => {
               <span
                 key={tag}
                 className={`inline-flex items-center space-x-1 text-xs font-mono px-3 py-1 rounded-md border ${darkMode
-                    ? 'bg-panel border-panel-border text-neutral-300'
-                    : 'bg-light-subtle border-light-border text-neutral-700'
+                  ? 'bg-panel border-panel-border text-neutral-300'
+                  : 'bg-light-subtle border-light-border text-neutral-700'
                   }`}
               >
                 <Tag size={12} className="text-electric" />
@@ -206,15 +206,15 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ darkMode }) => {
               }`}>
               About {personalInfo.displayName}
             </h3>
-              <p className={`text-xs leading-relaxed mb-3 ${darkMode ? 'text-neutral-300' : 'text-neutral-700'
-                }`}>
-                Full-Stack Developer, Software Engineer, and Computer Science student at University of the People (holding a B.Sc. in ICT Education from UEW). Writing on software architecture, practical engineering, cybersecurity, and personal growth.
-              </p>
-              <div className="flex items-center space-x-3 text-xs font-mono">
-                <Link to="/#about" className="text-electric hover:underline">
-                  View Full Biography &rarr;
-                </Link>
-              </div>
+            <p className={`text-xs leading-relaxed mb-3 ${darkMode ? 'text-neutral-300' : 'text-neutral-700'
+              }`}>
+              Full-Stack Developer, Software Engineer, and Computer Science student at University of the People (holding a B.Sc. in ICT Education from UEW). Writing on software architecture, practical engineering, cybersecurity, and personal growth.
+            </p>
+            <div className="flex items-center space-x-3 text-xs font-mono">
+              <Link to="/#about" className="text-electric hover:underline">
+                View Full Biography &rarr;
+              </Link>
+            </div>
           </div>
         </div>
 
