@@ -102,15 +102,17 @@ export const Contact: React.FC<ContactProps> = ({ darkMode }) => {
         
         {/* Section Header */}
         <div className="text-left mb-16">
-          <p className="text-xs font-mono uppercase tracking-widest text-electric font-semibold mb-2">
-            05 // COLLABORATION & INQUIRIES
-          </p>
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-md text-[11px] font-mono tracking-wider uppercase text-electric bg-electric/10 mb-3 border border-electric/20">
+            <span>08 // COLLABORATION & INQUIRIES</span>
+          </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
             <span className={darkMode ? 'text-white' : 'text-charcoal'}>
               Initiate Contact & Discussion
             </span>
           </h2>
-          <p className="mt-3 text-base text-muted max-w-2xl">
+          <p className={`mt-3 text-base max-w-2xl leading-relaxed ${
+            darkMode ? 'text-neutral-300' : 'text-neutral-700'
+          }`}>
             Whether discussing full-stack engineering roles, remote software opportunities, cybersecurity collaboration, or postgraduate research inquiries, I welcome direct communication.
           </p>
           <div className="w-16 h-1 bg-electric mt-4 rounded-full" />
@@ -123,7 +125,7 @@ export const Contact: React.FC<ContactProps> = ({ darkMode }) => {
           <div className="lg:col-span-5 space-y-6">
             
             {/* Identity Capsule with Mini Headshot */}
-            <div className={`p-6 rounded-2xl border ${
+            <div className={`p-6 rounded-2xl border shadow-xs ${
               darkMode ? 'bg-panel border-panel-border' : 'bg-white border-light-border'
             }`}>
               <div className="flex items-center space-x-4 mb-4">
@@ -140,12 +142,14 @@ export const Contact: React.FC<ContactProps> = ({ darkMode }) => {
                   }`}>
                     {personalInfo.displayName}
                   </h3>
-                  <p className="text-xs font-mono text-electric">
+                  <p className="text-xs font-mono text-electric font-semibold">
                     {personalInfo.status}
                   </p>
                 </div>
               </div>
-              <p className="text-xs text-muted leading-relaxed">
+              <p className={`text-xs leading-relaxed ${
+                darkMode ? 'text-neutral-300' : 'text-neutral-600'
+              }`}>
                 Directly responsive for software engineering positions, international remote contracts, and cybersecurity-oriented development.
               </p>
             </div>
@@ -154,15 +158,17 @@ export const Contact: React.FC<ContactProps> = ({ darkMode }) => {
             <div className="space-y-3">
               <a
                 href={`mailto:${personalInfo.email}`}
-                className={`p-4 rounded-xl border flex items-center space-x-3.5 transition-all duration-200 hover:border-electric ${
-                  darkMode ? 'bg-panel border-panel-border' : 'bg-white border-light-border'
+                className={`p-4 rounded-xl border flex items-center space-x-3.5 transition-all duration-200 hover:border-electric transform hover:-translate-y-0.5 ${
+                  darkMode ? 'bg-panel border-panel-border' : 'bg-white border-light-border shadow-xs'
                 }`}
               >
                 <div className="p-2.5 rounded-lg bg-electric/10 text-electric">
                   <Mail size={18} />
                 </div>
                 <div className="truncate">
-                  <p className="text-[10px] font-mono uppercase text-muted">Primary Email</p>
+                  <p className={`text-[10px] font-mono uppercase ${
+                    darkMode ? 'text-neutral-400' : 'text-neutral-500 font-semibold'
+                  }`}>Primary Email</p>
                   <p className={`text-sm font-semibold truncate ${
                     darkMode ? 'text-white' : 'text-charcoal'
                   }`}>
@@ -173,15 +179,17 @@ export const Contact: React.FC<ContactProps> = ({ darkMode }) => {
 
               <a
                 href={`tel:${personalInfo.phone.replace(/\s+/g, '')}`}
-                className={`p-4 rounded-xl border flex items-center space-x-3.5 transition-all duration-200 hover:border-electric ${
-                  darkMode ? 'bg-panel border-panel-border' : 'bg-white border-light-border'
+                className={`p-4 rounded-xl border flex items-center space-x-3.5 transition-all duration-200 hover:border-electric transform hover:-translate-y-0.5 ${
+                  darkMode ? 'bg-panel border-panel-border' : 'bg-white border-light-border shadow-xs'
                 }`}
               >
                 <div className="p-2.5 rounded-lg bg-emerald-500/10 text-emerald-400">
                   <Phone size={18} />
                 </div>
                 <div>
-                  <p className="text-[10px] font-mono uppercase text-muted">Direct Phone / WhatsApp</p>
+                  <p className={`text-[10px] font-mono uppercase ${
+                    darkMode ? 'text-neutral-400' : 'text-neutral-500 font-semibold'
+                  }`}>Direct Phone / WhatsApp</p>
                   <p className={`text-sm font-semibold ${
                     darkMode ? 'text-white' : 'text-charcoal'
                   }`}>
@@ -192,14 +200,16 @@ export const Contact: React.FC<ContactProps> = ({ darkMode }) => {
 
               <div
                 className={`p-4 rounded-xl border flex items-center space-x-3.5 ${
-                  darkMode ? 'bg-panel border-panel-border' : 'bg-white border-light-border'
+                  darkMode ? 'bg-panel border-panel-border' : 'bg-white border-light-border shadow-xs'
                 }`}
               >
                 <div className="p-2.5 rounded-lg bg-amber-500/10 text-amber-400">
                   <MapPin size={18} />
                 </div>
                 <div>
-                  <p className="text-[10px] font-mono uppercase text-muted">Base Location</p>
+                  <p className={`text-[10px] font-mono uppercase ${
+                    darkMode ? 'text-neutral-400' : 'text-neutral-500 font-semibold'
+                  }`}>Base Location</p>
                   <p className={`text-sm font-semibold ${
                     darkMode ? 'text-white' : 'text-charcoal'
                   }`}>
@@ -211,9 +221,11 @@ export const Contact: React.FC<ContactProps> = ({ darkMode }) => {
 
             {/* Social Connectivity */}
             <div className={`p-5 rounded-xl border flex items-center justify-between ${
-              darkMode ? 'bg-panel/40 border-panel-border' : 'bg-light-subtle/80 border-light-border'
+              darkMode ? 'bg-panel/40 border-panel-border' : 'bg-light-subtle border-light-border'
             }`}>
-              <span className="text-xs font-mono uppercase text-muted">Professional Networks:</span>
+              <span className={`text-xs font-mono uppercase ${
+                darkMode ? 'text-neutral-400' : 'text-neutral-600 font-semibold'
+              }`}>Professional Networks:</span>
               <div className="flex items-center space-x-3">
                 <a
                   href={personalInfo.github}
@@ -249,7 +261,9 @@ export const Contact: React.FC<ContactProps> = ({ darkMode }) => {
               }`}>
                 Transmit Inquiry
               </h3>
-              <p className="text-xs text-muted mb-6">
+              <p className={`text-xs mb-6 ${
+                darkMode ? 'text-neutral-400' : 'text-neutral-600'
+              }`}>
                 All communications are routed directly to Clement Palmer. No automated screening bots.
               </p>
 
@@ -272,7 +286,9 @@ export const Contact: React.FC<ContactProps> = ({ darkMode }) => {
                 <div className="grid sm:grid-cols-2 gap-4">
                   {/* Name Field */}
                   <div>
-                    <label htmlFor="name" className="block text-xs font-mono uppercase text-muted mb-1.5 font-medium">
+                    <label htmlFor="name" className={`block text-xs font-mono uppercase mb-1.5 font-semibold ${
+                      darkMode ? 'text-neutral-300' : 'text-neutral-700'
+                    }`}>
                       Full Name <span className="text-electric">*</span>
                     </label>
                     <input
@@ -297,7 +313,9 @@ export const Contact: React.FC<ContactProps> = ({ darkMode }) => {
 
                   {/* Email Field */}
                   <div>
-                    <label htmlFor="email" className="block text-xs font-mono uppercase text-muted mb-1.5 font-medium">
+                    <label htmlFor="email" className={`block text-xs font-mono uppercase mb-1.5 font-semibold ${
+                      darkMode ? 'text-neutral-300' : 'text-neutral-700'
+                    }`}>
                       Email Address <span className="text-electric">*</span>
                     </label>
                     <input
@@ -323,7 +341,9 @@ export const Contact: React.FC<ContactProps> = ({ darkMode }) => {
 
                 {/* Subject Field */}
                 <div>
-                  <label htmlFor="subject" className="block text-xs font-mono uppercase text-muted mb-1.5 font-medium">
+                  <label htmlFor="subject" className={`block text-xs font-mono uppercase mb-1.5 font-semibold ${
+                    darkMode ? 'text-neutral-300' : 'text-neutral-700'
+                  }`}>
                     Inquiry Subject <span className="text-electric">*</span>
                   </label>
                   <input
@@ -348,7 +368,9 @@ export const Contact: React.FC<ContactProps> = ({ darkMode }) => {
 
                 {/* Message Field */}
                 <div>
-                  <label htmlFor="message" className="block text-xs font-mono uppercase text-muted mb-1.5 font-medium">
+                  <label htmlFor="message" className={`block text-xs font-mono uppercase mb-1.5 font-semibold ${
+                    darkMode ? 'text-neutral-300' : 'text-neutral-700'
+                  }`}>
                     Message Dossier <span className="text-electric">*</span>
                   </label>
                   <textarea

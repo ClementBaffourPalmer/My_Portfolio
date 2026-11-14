@@ -16,11 +16,19 @@ export const personalInfo = {
   phone: "+233 240441107",
   location: "Accra, Ghana",
   github: "https://github.com/ClementBaffourPalmer",
-  linkedin: "https://www.linkedin.com/in/clement-palmer-867679219",
+  linkedin: "https://www.linkedin.com/in/kwesi-baffour-598ba83a9/",
   cvPath: "/documents/Clement_Palmer_CV.pdf",
   profileImage: "/images/clement-palmer-profile.jpg",
   headshotImage: "/images/clement-palmer-headshot.jpg"
 };
+
+export const typewriterRoles = [
+  "Full-Stack Developer",
+  "Software Engineer",
+  "Backend Developer",
+  "Cybersecurity Enthusiast",
+  "Ethical Hacking Explorer"
+];
 
 export const projectsData: Project[] = [
   {
@@ -114,6 +122,66 @@ export const projectsData: Project[] = [
       "15-second debounce window preventing frame-by-frame duplicate attendance records.",
       "Admin dashboard with occupancy statistics, daily traffic logs, and CSV export capabilities.",
       "Graceful logging of unrecognized visitors without interrupting gate surveillance."
+    ]
+  },
+  {
+    id: "python-voice-recorder",
+    title: "Python Voice Recorder",
+    category: "Python Application / Desktop Utility",
+    tagline: "Desktop Audio Recording & Signal Capture Utility",
+    description: "A desktop voice recording utility engineered in Python for capturing, processing, and exporting microphone audio inputs with low latency and clean fidelity.",
+    longDescription: "Developed as an independent software utility in Python, this application allows users to interface directly with local audio hardware, capture vocal streams, monitor recording states, and save structured WAV and MP3 audio files to local storage with robust error handling.",
+    technologies: ["Python", "Audio Processing", "Wave Format", "Desktop Utility"],
+    featured: false,
+    badge: "Python Desktop Utility",
+    codeAvailableOnRequest: true,
+    image: "/images/projects/Voice-recorder-image.png",
+    architecture: {
+      overview: "Desktop audio buffer pipeline implementing multi-threaded audio chunk streaming and binary serialization.",
+      frontend: "Lightweight graphical user interface with real-time recording timer and state triggers.",
+      backend: "Python audio capture routines managing input buffer streams and device polling.",
+      database: "Local file system directory management with automated timestamped naming conventions.",
+      security: "Safe file I/O operations with path sanitization preventing directory traversal."
+    },
+    challenges: [
+      "Managing buffer memory allocation to prevent audio clipping during long-session recordings.",
+      "Abstracting audio driver differences between different operating system hardware setups."
+    ],
+    highlights: [
+      "High-fidelity microphone input capture and buffer sampling.",
+      "Direct-to-disk formatted audio export.",
+      "Simple, distraction-free desktop user interface.",
+      "Zero external internet requirement; runs 100% locally on device."
+    ]
+  },
+  {
+    id: "py-expense-tracker",
+    title: "Py Expense Tracker",
+    category: "Python / Console-Based Application",
+    tagline: "Command-Line Personal Finance & Daily Expense Manager",
+    description: "A fully console-based personal expense tracking application developed using Python to help users record, categorize, and monitor daily financial transactions via the terminal.",
+    longDescription: "A command-line software tool built in Python focused on practical data handling and personal expense tracking. The program allows users to record daily expenditures, assign spending categories, generate chronological ledgers, and compute aggregated summaries directly through an interactive CLI.",
+    technologies: ["Python", "CLI Interface", "Data Persistence", "Financial Modeling"],
+    featured: false,
+    badge: "Console Application",
+    codeAvailableOnRequest: true,
+    image: "/images/projects/project-3.png",
+    architecture: {
+      overview: "Modular CLI architecture separating argument parsing, ledger data management, and tabular summary reports.",
+      frontend: "Terminal-based interactive CLI with ANSI formatting and clean tabular text presentation.",
+      backend: "Python business logic executing calculation routines, balance updates, and categorical breakdowns.",
+      database: "Persistent structured file storage ensuring transactional record retention across terminal sessions.",
+      security: "Robust input sanitization preventing command injection and data corruption."
+    },
+    challenges: [
+      "Validating decimal transaction amounts and robust parsing of chronological date inputs in an interactive command-line environment.",
+      "Generating readable, aligned tabular summaries directly in the terminal without external UI frameworks."
+    ],
+    highlights: [
+      "Interactive CLI commands for logging, viewing, and categorizing expenses.",
+      "Daily, weekly, and monthly spending summaries.",
+      "Persistent file-based data storage ensuring records survive restarts.",
+      "Zero external dependencies; completely self-contained Python script."
     ]
   },
   {
@@ -260,19 +328,49 @@ export const cybersecurityFocus: SecurityArea[] = [
 export const experienceData: ExperienceItem[] = [
   {
     id: "palisade-academy",
-    role: "ICT Educator (Teaching Practice)",
+    role: "ICT Educator — Teaching Practice",
     organization: "Palisade Academy",
     location: "Ghana",
     period: "Approx. 6 Months",
     type: "teaching",
     summary: "Led ICT instruction, curriculum delivery, and technical mentorship for secondary-level students, bridging foundational computing concepts with practical digital literacy.",
     responsibilities: [
-      "Structured and delivered comprehensive lesson modules covering computer architecture, productivity software, and introductory programming logic.",
+      "Structured and delivered learner-centred lesson modules covering computer architecture, productivity software, and introductory computational logic.",
       "Mentored students through hands-on technical problem-solving exercises, cultivating analytical and algorithmic thinking.",
       "Demystified complex technological concepts into accessible, actionable mental models for non-technical learners.",
       "Managed academic laboratory equipment and guided students in responsible digital ethics and cybersecurity awareness."
     ],
     skillsGained: ["Technical Communication", "Instructional Design", "Mentorship", "Problem Solving", "Digital Literacy"]
+  },
+  {
+    id: "aim-high-academy",
+    role: "ICT Educator",
+    organization: "Aim High Academy",
+    location: "Ghana",
+    period: "Previous Teaching Experience",
+    type: "teaching",
+    summary: "Conducted ICT instruction and digital literacy training, fostering practical technological skills and computational confidence among learners.",
+    responsibilities: [
+      "Delivered structured lessons in computer literacy, information technology fundamentals, and software applications.",
+      "Engaged students in interactive technology sessions emphasizing technical problem-solving and foundational digital skills.",
+      "Communicated core computing principles clearly to support learner development across diverse academic levels."
+    ],
+    skillsGained: ["Technical Instruction", "Digital Literacy", "Learner Development", "Classroom Communication"]
+  },
+  {
+    id: "transformation-intl-school",
+    role: "ICT & Technical Educator",
+    organization: "Transformation International School",
+    location: "Ghana",
+    period: "Previous Teaching Experience",
+    type: "teaching",
+    summary: "Delivered ICT and technical coursework, guiding students in understanding technology concepts, problem-solving, and practical computer applications.",
+    responsibilities: [
+      "Taught ICT curriculum and related technical subjects with an emphasis on hands-on application and analytical understanding.",
+      "Guided learners through technology coursework and problem-solving exercises.",
+      "Fostered a positive, disciplined learning environment centered on technological curiosity and digital responsibility."
+    ],
+    skillsGained: ["Curriculum Delivery", "Technical Mentoring", "Problem Solving", "Student Engagement"]
   },
   {
     id: "independent-engineering",
@@ -307,5 +405,37 @@ export const educationData: EducationItem[] = [
       "Web Technologies & Systems Architecture",
       "Educational Technology & Technical Pedagogy"
     ]
+  }
+];
+
+export interface PersonalInterest {
+  category: string;
+  title: string;
+  iconName: 'Music' | 'Activity' | 'ShieldAlert';
+  description: string;
+  tags: string[];
+}
+
+export const personalInterests: PersonalInterest[] = [
+  {
+    category: "Music & Artistry",
+    title: "Musician, Drummer & Vocalist",
+    iconName: "Music",
+    description: "Music is a foundational part of my personal life. As a multi-talented instrumentalist, active drummer, and vocalist, musical rhythm has trained my sense of timing, patience, and creative expression.",
+    tags: ["Drumming", "Singing", "Multi-Instrumentalist", "Rhythm & Harmony"]
+  },
+  {
+    category: "Athletics & Fitness",
+    title: "Athletics & Physical Training",
+    iconName: "Activity",
+    description: "I enjoy athletics and active sporting pursuits. Physical conditioning instills discipline, mental clarity, and resilience—qualities that directly reinforce stamina during complex technical debugging and software architecture sprints.",
+    tags: ["Athletics", "Physical Discipline", "Endurance", "Mental Focus"]
+  },
+  {
+    category: "Cybersecurity Exploration",
+    title: "Ethical Hacking & Penetration Testing",
+    iconName: "ShieldAlert",
+    description: "What began as an insatiable childhood curiosity about how networks function has matured into an active exploration of ethical hacking, vulnerability research, and defensive software hardening.",
+    tags: ["Network Security", "Vulnerability Research", "Ethical Hacking", "Exploration"]
   }
 ];

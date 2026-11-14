@@ -21,8 +21,10 @@ export const Experience: React.FC<ExperienceProps> = ({ darkMode }) => {
               Professional Experience & Practice
             </span>
           </h2>
-          <p className="mt-3 text-base text-muted max-w-2xl">
-            A track record combining rigorous technical education, classroom pedagogy, and hands-on independent software engineering.
+          <p className={`mt-3 text-base max-w-2xl leading-relaxed ${
+            darkMode ? 'text-neutral-300' : 'text-neutral-700'
+          }`}>
+            A track record combining rigorous technical education across three academic institutions, structured classroom pedagogy, and hands-on independent software engineering.
           </p>
           <div className="w-16 h-1 bg-electric mt-4 rounded-full" />
         </div>
@@ -33,7 +35,7 @@ export const Experience: React.FC<ExperienceProps> = ({ darkMode }) => {
             <div key={exp.id} className="relative pl-8 sm:pl-16 group">
               
               {/* Timeline Node Icon */}
-              <div className="absolute left-0 sm:left-5 top-1.5 w-6 h-6 rounded-full bg-panel border-2 border-electric flex items-center justify-center transform -translate-x-1/2 z-10 shadow-sm">
+              <div className="absolute left-0 sm:left-5 top-1.5 w-6 h-6 rounded-full bg-panel border-2 border-electric flex items-center justify-center transform -translate-x-1/2 z-10 shadow-sm transition-transform group-hover:scale-110">
                 {exp.type === 'teaching' ? (
                   <BookOpen size={11} className="text-electric" />
                 ) : (
@@ -43,7 +45,7 @@ export const Experience: React.FC<ExperienceProps> = ({ darkMode }) => {
 
               {/* Experience Card */}
               <div
-                className={`p-6 sm:p-8 rounded-2xl border transition-all duration-200 hover:border-neutral-500 shadow-sm ${
+                className={`p-6 sm:p-8 rounded-2xl border transition-all duration-300 hover:border-neutral-500 shadow-sm hover:shadow-elevated transform hover:-translate-y-0.5 ${
                   darkMode ? 'bg-panel border-panel-border' : 'bg-white border-light-border'
                 }`}
               >
@@ -62,7 +64,9 @@ export const Experience: React.FC<ExperienceProps> = ({ darkMode }) => {
                     </p>
                   </div>
 
-                  <div className="text-left sm:text-right text-xs font-mono text-muted space-y-1">
+                  <div className={`text-left sm:text-right text-xs font-mono space-y-1 ${
+                    darkMode ? 'text-neutral-400' : 'text-neutral-600 font-medium'
+                  }`}>
                     <div className="flex items-center sm:justify-end space-x-1">
                       <Calendar size={13} className="text-electric" />
                       <span>{exp.period}</span>
@@ -74,7 +78,9 @@ export const Experience: React.FC<ExperienceProps> = ({ darkMode }) => {
                   </div>
                 </div>
 
-                <p className="text-sm text-neutral-300 dark:text-neutral-300 leading-relaxed mb-6">
+                <p className={`text-sm leading-relaxed mb-6 ${
+                  darkMode ? 'text-neutral-300' : 'text-neutral-700'
+                }`}>
                   {exp.summary}
                 </p>
 
@@ -83,7 +89,7 @@ export const Experience: React.FC<ExperienceProps> = ({ darkMode }) => {
                   {exp.responsibilities.map((resp, idx) => (
                     <div key={idx} className="flex items-start space-x-2.5 text-xs">
                       <CheckCircle2 size={14} className="text-electric mt-0.5 shrink-0" />
-                      <span className={darkMode ? 'text-neutral-300' : 'text-neutral-700'}>
+                      <span className={darkMode ? 'text-neutral-300' : 'text-neutral-800 font-medium'}>
                         {resp}
                       </span>
                     </div>
@@ -92,7 +98,9 @@ export const Experience: React.FC<ExperienceProps> = ({ darkMode }) => {
 
                 {/* Skills Gained Tags */}
                 <div className="pt-4 border-t border-panel-border/50 flex flex-wrap items-center gap-1.5">
-                  <span className="text-[10px] font-mono uppercase text-muted mr-2">
+                  <span className={`text-[10px] font-mono uppercase mr-2 ${
+                    darkMode ? 'text-neutral-400' : 'text-neutral-600 font-medium'
+                  }`}>
                     Key Competencies:
                   </span>
                   {exp.skillsGained.map((skill) => (
@@ -101,7 +109,7 @@ export const Experience: React.FC<ExperienceProps> = ({ darkMode }) => {
                       className={`text-[11px] px-2.5 py-1 rounded-md border font-mono ${
                         darkMode
                           ? 'bg-charcoal border-panel-border text-neutral-300'
-                          : 'bg-light-subtle border-light-border text-neutral-700'
+                          : 'bg-light-subtle border-light-border text-neutral-800 font-medium'
                       }`}
                     >
                       {skill}

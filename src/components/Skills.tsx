@@ -38,7 +38,9 @@ export const Skills: React.FC<SkillsProps> = ({ darkMode }) => {
               Core Competencies & Tooling
             </span>
           </h2>
-          <p className="mt-3 text-base text-muted max-w-2xl">
+          <p className={`mt-3 text-base max-w-2xl leading-relaxed ${
+            darkMode ? 'text-neutral-300' : 'text-neutral-700'
+          }`}>
             A comprehensive, verified inventory of technologies applied across production codebases, academic systems, and architectural projects. No arbitrary percentages — just proven development tools and frameworks.
           </p>
           <div className="w-16 h-1 bg-electric mt-4 rounded-full" />
@@ -49,7 +51,7 @@ export const Skills: React.FC<SkillsProps> = ({ darkMode }) => {
           {skillsData.map((category, index) => (
             <div
               key={category.title}
-              className={`p-6 rounded-xl border transition-all duration-200 hover:border-neutral-500 flex flex-col justify-between ${
+              className={`p-6 rounded-xl border transition-all duration-300 hover:border-neutral-500 flex flex-col justify-between shadow-xs hover:shadow-elevated transform hover:-translate-y-1 ${
                 darkMode ? 'bg-panel border-panel-border' : 'bg-white border-light-border'
               } ${index === 0 ? 'md:col-span-2 lg:col-span-1' : ''}`}
             >
@@ -68,7 +70,9 @@ export const Skills: React.FC<SkillsProps> = ({ darkMode }) => {
                   </div>
                 </div>
 
-                <p className="text-xs text-muted mb-6 leading-relaxed">
+                <p className={`text-xs mb-6 leading-relaxed ${
+                  darkMode ? 'text-neutral-400' : 'text-neutral-600'
+                }`}>
                   {category.description}
                 </p>
 
@@ -84,12 +88,14 @@ export const Skills: React.FC<SkillsProps> = ({ darkMode }) => {
                       }`}
                     >
                       <span className={`text-xs font-semibold ${
-                        darkMode ? 'text-neutral-200' : 'text-neutral-800'
+                        darkMode ? 'text-neutral-200' : 'text-neutral-900'
                       }`}>
                         {skill.name}
                       </span>
                       {skill.context && (
-                        <span className="text-[10px] font-mono text-muted tracking-tight max-w-[55%] text-right truncate">
+                        <span className={`text-[10px] font-mono tracking-tight max-w-[55%] text-right truncate ${
+                          darkMode ? 'text-neutral-400' : 'text-neutral-600 font-medium'
+                        }`}>
                           {skill.context}
                         </span>
                       )}
@@ -99,7 +105,9 @@ export const Skills: React.FC<SkillsProps> = ({ darkMode }) => {
               </div>
 
               {/* Card Footer Tag */}
-              <div className="pt-4 mt-6 border-t border-panel-border/40 text-[10px] font-mono text-muted flex items-center justify-between">
+              <div className={`pt-4 mt-6 border-t border-panel-border/40 text-[10px] font-mono flex items-center justify-between ${
+                darkMode ? 'text-neutral-400' : 'text-neutral-600'
+              }`}>
                 <span>VERIFIED STACK</span>
                 <span className="text-electric font-semibold">{category.skills.length} MODULES</span>
               </div>

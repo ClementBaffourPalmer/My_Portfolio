@@ -21,7 +21,7 @@ export const BlogCard: React.FC<BlogCardProps> = ({ article, darkMode, featured 
 
   return (
     <article
-      className={`group rounded-2xl border transition-all duration-300 hover:border-neutral-500 flex flex-col justify-between overflow-hidden shadow-sm hover:shadow-elevated ${
+      className={`group rounded-2xl border transition-all duration-300 hover:border-neutral-500 flex flex-col justify-between overflow-hidden shadow-sm hover:shadow-elevated transform hover:-translate-y-1 ${
         darkMode ? 'bg-panel border-panel-border' : 'bg-white border-light-border'
       } ${featured ? 'md:col-span-2 lg:col-span-3' : ''}`}
     >
@@ -32,14 +32,16 @@ export const BlogCard: React.FC<BlogCardProps> = ({ article, darkMode, featured 
             {article.category}
           </span>
 
-          <div className="flex items-center space-x-3 text-xs font-mono text-muted">
+          <div className={`flex items-center space-x-3 text-xs font-mono ${
+            darkMode ? 'text-neutral-400' : 'text-neutral-600 font-medium'
+          }`}>
             <span className="inline-flex items-center space-x-1">
               <Calendar size={13} className="text-electric" />
               <span>{formatDate(article.publishedAt)}</span>
             </span>
             <span>•</span>
             <span className="inline-flex items-center space-x-1">
-              <Clock size={13} className="text-muted" />
+              <Clock size={13} />
               <span>{article.readingTime}</span>
             </span>
           </div>
@@ -57,7 +59,9 @@ export const BlogCard: React.FC<BlogCardProps> = ({ article, darkMode, featured 
         </Link>
 
         {/* Subtitle / Excerpt */}
-        <p className="text-sm leading-relaxed text-muted line-clamp-3 mb-6">
+        <p className={`text-sm leading-relaxed line-clamp-3 mb-6 ${
+          darkMode ? 'text-neutral-300' : 'text-neutral-700'
+        }`}>
           {article.excerpt}
         </p>
 
@@ -68,8 +72,8 @@ export const BlogCard: React.FC<BlogCardProps> = ({ article, darkMode, featured 
               key={tag}
               className={`inline-flex items-center space-x-1 text-[11px] font-mono px-2 py-0.5 rounded border ${
                 darkMode
-                  ? 'bg-charcoal/80 border-panel-border text-neutral-400'
-                  : 'bg-light-subtle border-light-border text-neutral-600'
+                  ? 'bg-charcoal/80 border-panel-border text-neutral-300'
+                  : 'bg-light-subtle border-light-border text-neutral-800 font-medium'
               }`}
             >
               <Tag size={10} className="text-electric" />
@@ -82,10 +86,12 @@ export const BlogCard: React.FC<BlogCardProps> = ({ article, darkMode, featured 
       {/* Card Footer Link */}
       <div
         className={`px-6 sm:px-8 py-4 border-t flex items-center justify-between text-xs font-mono transition-colors ${
-          darkMode ? 'bg-charcoal/40 border-panel-border text-neutral-300' : 'bg-light-subtle/50 border-light-border text-neutral-700'
+          darkMode ? 'bg-charcoal/40 border-panel-border text-neutral-300' : 'bg-light-subtle/70 border-light-border text-neutral-700'
         }`}
       >
-        <span className="text-muted text-[11px]">CLEMENT PALMER // ESSAY</span>
+        <span className={`text-[11px] ${darkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>
+          CLEMENT PALMER // ESSAY
+        </span>
         <Link
           to={`/blog/${article.slug}`}
           className="inline-flex items-center space-x-1.5 font-semibold text-electric group-hover:underline"

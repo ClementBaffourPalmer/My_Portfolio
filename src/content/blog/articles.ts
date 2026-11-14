@@ -283,5 +283,66 @@ Building StepEase taught me that accessible software is simply better software f
     content: `
 *This article is currently an unreleased draft and should not appear in public production listings.*
 `
+  },
+  {
+    title: "From Neighbourhood Wi-Fi Curiosity to Cybersecurity: Where It All Began",
+    slug: "from-neighbourhood-wifi-curiosity-to-cybersecurity",
+    subtitle: "How a childhood thirst for connectivity sparked an enduring journey into networks, security, and ethical software engineering.",
+    excerpt: "Growing up, inadequate resources often made internet access difficult to come by. What began as an innocent, curious fascination with how neighbours' Wi-Fi passwords worked became the spark that unlocked the vast world of computing, networking protocols, and defensive cybersecurity.",
+    category: "Cybersecurity",
+    tags: ["Cybersecurity", "Journey", "Ethical Hacking", "Reflections", "Networks"],
+    publishedAt: "2026-11-14",
+    status: "draft",
+    featured: false,
+    readingTime: "5 min read",
+    content: `
+## The Spark of Necessity
+
+Curiosity often takes root in the most unassuming circumstances. Growing up in Ghana, my fascination with technology was not sparked in an elite computing laboratory equipped with high-speed fiber internet. It was born out of scarcity, patience, and a deep desire to connect with the wider world.
+
+During my formative years, steady internet access was a luxury. Inadequate financial resources meant that purchasing data bundles was something to be weighed carefully against immediate daily needs. Yet, the internet was where software was being documented, where open-source systems were discussed, and where the answers to all my computing questions lived.
+
+All around my neighbourhood, wireless router signals appeared on my device screen. They were locked behind passwords, tantalizingly close yet completely inaccessible.
+
+Naturally, the curious mind asks: *how does that lock actually work?*
+
+## The Shift from Wanting Access to Understanding Systems
+
+At first, the instinct was simple and naive: I just wanted to get online. I wanted to read articles, learn how code functioned, and explore the web. I began researching how Wi-Fi routers communicated with devices, how network security protocols operated, and why passwords were required.
+
+That pursuit quickly changed everything.
+
+Instead of looking for shortcuts, I found myself captivated by the underlying mechanics. I learned about:
+- The four-way handshake in WPA/WPA2 authentication.
+- How packets travel through radio frequencies, carrying encrypted cryptographic hashes.
+- How client devices negotiate encryption keys with access points.
+- How routers handle DHCP leases, routing tables, and subnet masks.
+
+The desire to simply "get online" dissolved. In its place emerged a far deeper and more intellectually rewarding obsession: **understanding how network architectures work, how vulnerabilities emerge, and how systems can be defended.**
+
+> *"Curiosity that starts as a quest to open a closed door often transforms into an appreciation for how the entire building is constructed."*
+
+## The Realization of Ethical Responsibility
+
+As my technical knowledge grew, so did my understanding of the ethical boundaries governing software engineering and computing. 
+
+Discovering a security vulnerability is not an invitation to exploit; it is a mandate to protect. Breaking into someone's private network without authorization is not just wrong—it undermines the foundational trust that allows digital society to function.
+
+This realization marked the true beginning of my journey into **cybersecurity and ethical penetration testing**. 
+
+I realized that the skills required to probe a system for weaknesses are the exact same skills needed to architect defensible, resilient software. If you know how an attacker analyzes an authentication endpoint or intercepts an unencrypted session token, you can design backends that shut those attack vectors down before code ever reaches production.
+
+## Full-Circle: From Curiosity to Purpose
+
+Looking back, I am grateful for those humble beginnings. When resources are constrained, you learn resourcefulness. You don't take bandwidth, computing cycles, or network packets for granted. You read manuals closely, you inspect protocols with patience, and you learn to value foundational understanding over surface-level tricks.
+
+Today, as I engineer full-stack systems and continue expanding my specialization in cybersecurity, that original spark remains alive. 
+
+Security is not about breaking things; it is about building software so robust and dependable that people can communicate, collaborate, and innovate without fear.
+
+---
+
+*(Note: This article is currently a private review draft.)*
+`
   }
 ];

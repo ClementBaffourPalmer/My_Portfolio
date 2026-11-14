@@ -53,7 +53,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, da
             <span className="text-xs font-mono uppercase px-2.5 py-1 rounded bg-electric/10 text-electric border border-electric/20 font-semibold">
               {project.category}
             </span>
-            <span className="text-xs font-mono text-muted">
+            <span className={`text-xs font-mono ${darkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>
               CASE STUDY // ARCHITECTURAL DOSSIER
             </span>
           </div>
@@ -62,7 +62,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, da
             onClick={onClose}
             className={`p-2 rounded-lg border transition-colors ${
               darkMode
-                ? 'border-panel-border bg-panel text-muted hover:text-white'
+                ? 'border-panel-border bg-panel text-neutral-300 hover:text-white'
                 : 'border-light-border bg-light-subtle text-neutral-600 hover:text-charcoal'
             }`}
             aria-label="Close case study dialog"
@@ -82,29 +82,43 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, da
               </h2>
               
               <div className="flex items-center space-x-3">
-                {project.githubUrl && (
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-electric text-white hover:bg-electric-hover transition-colors"
-                  >
-                    <Github size={14} />
-                    <span>View Repository</span>
-                  </a>
-                )}
-                {project.liveUrl && (
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border transition-colors ${
-                      darkMode ? 'border-panel-border bg-panel text-white' : 'border-light-border bg-light-subtle text-charcoal'
+                {project.codeAvailableOnRequest ? (
+                  <span
+                    className={`inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border ${
+                      darkMode
+                        ? 'border-panel-border bg-panel text-neutral-300'
+                        : 'border-light-border bg-light-subtle text-neutral-700'
                     }`}
                   >
-                    <ExternalLink size={14} />
-                    <span>Live Demo</span>
-                  </a>
+                    <span>Code Available on Request</span>
+                  </span>
+                ) : (
+                  <>
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-electric text-white hover:bg-electric-hover transition-colors"
+                      >
+                        <Github size={14} />
+                        <span>View Repository</span>
+                      </a>
+                    )}
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border transition-colors ${
+                          darkMode ? 'border-panel-border bg-panel text-white' : 'border-light-border bg-light-subtle text-charcoal'
+                        }`}
+                      >
+                        <ExternalLink size={14} />
+                        <span>Live Demo</span>
+                      </a>
+                    )}
+                  </>
                 )}
               </div>
             </div>
@@ -118,10 +132,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, da
           <div className={`p-5 rounded-xl border ${
             darkMode ? 'bg-panel/70 border-panel-border' : 'bg-light-subtle/80 border-light-border'
           }`}>
-            <h3 className="text-xs font-mono uppercase tracking-wider text-muted font-semibold mb-2">
+            <h3 className={`text-xs font-mono uppercase tracking-wider font-semibold mb-2 ${
+              darkMode ? 'text-neutral-400' : 'text-neutral-600'
+            }`}>
               System Purpose & Architecture Overview
             </h3>
-            <p className="text-sm leading-relaxed text-neutral-300 dark:text-neutral-300">
+            <p className={`text-sm leading-relaxed ${
+              darkMode ? 'text-neutral-300' : 'text-neutral-700'
+            }`}>
               {project.longDescription}
             </p>
           </div>
@@ -140,7 +158,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, da
                     <Layers size={14} />
                     <span>Frontend Layer</span>
                   </div>
-                  <p className="text-xs text-muted leading-relaxed">
+                  <p className={`text-xs leading-relaxed ${
+                    darkMode ? 'text-neutral-400' : 'text-neutral-600'
+                  }`}>
                     {project.architecture.frontend}
                   </p>
                 </div>
@@ -154,7 +174,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, da
                     <Server size={14} />
                     <span>Backend & API Architecture</span>
                   </div>
-                  <p className="text-xs text-muted leading-relaxed">
+                  <p className={`text-xs leading-relaxed ${
+                    darkMode ? 'text-neutral-400' : 'text-neutral-600'
+                  }`}>
                     {project.architecture.backend}
                   </p>
                 </div>
@@ -168,7 +190,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, da
                     <Database size={14} />
                     <span>Database & Schema Design</span>
                   </div>
-                  <p className="text-xs text-muted leading-relaxed">
+                  <p className={`text-xs leading-relaxed ${
+                    darkMode ? 'text-neutral-400' : 'text-neutral-600'
+                  }`}>
                     {project.architecture.database}
                   </p>
                 </div>
@@ -182,7 +206,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, da
                     <ShieldCheck size={14} />
                     <span>Security & Defensibility</span>
                   </div>
-                  <p className="text-xs text-muted leading-relaxed">
+                  <p className={`text-xs leading-relaxed ${
+                    darkMode ? 'text-neutral-400' : 'text-neutral-600'
+                  }`}>
                     {project.architecture.security}
                   </p>
                 </div>
@@ -219,7 +245,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, da
               {project.highlights.map((highlight, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center space-x-2 text-xs text-neutral-300 dark:text-neutral-300"
+                  className={`flex items-center space-x-2 text-xs ${
+                    darkMode ? 'text-neutral-300' : 'text-neutral-700'
+                  }`}
                 >
                   <CheckCircle2 size={14} className="text-emerald-400 shrink-0" />
                   <span>{highlight}</span>
@@ -230,7 +258,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, da
 
           {/* Technology Chips */}
           <div className="pt-4 border-t border-panel-border/50">
-            <h3 className="text-xs font-mono uppercase tracking-wider text-muted font-semibold mb-3">
+            <h3 className={`text-xs font-mono uppercase tracking-wider font-semibold mb-3 ${
+              darkMode ? 'text-neutral-400' : 'text-neutral-600'
+            }`}>
               Applied Technologies
             </h3>
             <div className="flex flex-wrap gap-2">
@@ -251,8 +281,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, da
 
         {/* Modal Footer */}
         <div
-          className={`px-6 py-4 border-t flex items-center justify-between text-xs font-mono text-muted ${
-            darkMode ? 'bg-charcoal/90 border-panel-border' : 'bg-white/90 border-light-border'
+          className={`px-6 py-4 border-t flex items-center justify-between text-xs font-mono ${
+            darkMode ? 'bg-charcoal/90 border-panel-border text-neutral-400' : 'bg-white/90 border-light-border text-neutral-600'
           }`}
         >
           <span>CLEMENT PALMER // SOFTWARE DOSSIER</span>

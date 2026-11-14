@@ -9,7 +9,18 @@
     --color-panel: #20242D;
     --color-white: #FFFFFF;
     --color-light-grey: #F4F5F7;
-    --color-muted: #9298A5;
+    
+    /* Semantic typography variables for dark mode (default) */
+    --text-primary: #FFFFFF;
+    --text-body: #D1D5DB;
+    --text-secondary: #94A3B8;
+  }
+
+  .light {
+    /* Semantic typography variables for light mode */
+    --text-primary: #111318;
+    --text-body: #374151;
+    --text-secondary: #4B5563;
   }
 
   html {
@@ -75,5 +86,58 @@
 
   .light .page-surface {
     background-color: #F4F5F7;
+  }
+
+  /* Typography Contrast Utilities */
+  .text-contrast-primary {
+    color: #111318;
+  }
+  .dark .text-contrast-primary {
+    color: #FFFFFF;
+  }
+
+  .text-contrast-body {
+    color: #374151;
+  }
+  .dark .text-contrast-body {
+    color: #D1D5DB;
+  }
+
+  .text-contrast-secondary {
+    color: #4B5563;
+  }
+  .dark .text-contrast-secondary {
+    color: #94A3B8;
+  }
+}
+
+/* Animations */
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink-cursor 0.9s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes float-subtle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+
+.animate-float-subtle {
+  animation: float-subtle 6s ease-in-out infinite;
+}
+
+/* Respect user's reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

@@ -20,14 +20,16 @@ export const HomeBlogSection: React.FC<HomeBlogSectionProps> = ({ darkMode }) =>
           <div>
             <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-md text-[11px] font-mono tracking-wider uppercase text-electric bg-electric/10 mb-3 border border-electric/20">
               <BookOpen size={13} />
-              <span>JOURNAL // ESSAYS & REFLECTIONS</span>
+              <span>07 // JOURNAL // ESSAYS & REFLECTIONS</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
               <span className={darkMode ? 'text-white' : 'text-charcoal'}>
                 Notes From My Journey
               </span>
             </h2>
-            <p className="mt-3 text-base text-muted max-w-2xl leading-relaxed">
+            <p className={`mt-3 text-base max-w-2xl leading-relaxed ${
+              darkMode ? 'text-neutral-300' : 'text-neutral-700'
+            }`}>
               Occasional thoughts, lessons and experiences from my journey through technology, engineering and personal growth.
             </p>
             <div className="w-16 h-1 bg-electric mt-4 rounded-full" />

@@ -5,6 +5,7 @@ import { Skills } from '../components/Skills';
 import { Projects } from '../components/Projects';
 import { Experience } from '../components/Experience';
 import { Cybersecurity } from '../components/Cybersecurity';
+import { PersonalInterests } from '../components/PersonalInterests';
 import { HomeBlogSection } from '../components/HomeBlogSection';
 import { Contact } from '../components/Contact';
 
@@ -25,6 +26,7 @@ export const HomePage: React.FC<HomePageProps> = ({ darkMode }) => {
       <Projects darkMode={darkMode} />
       <Experience darkMode={darkMode} />
       <Cybersecurity darkMode={darkMode} />
+      <PersonalInterests darkMode={darkMode} />
       <HomeBlogSection darkMode={darkMode} />
       <Contact darkMode={darkMode} />
     </>

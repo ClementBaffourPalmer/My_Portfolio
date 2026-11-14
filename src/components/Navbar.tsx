@@ -25,6 +25,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
     { name: 'Projects', section: 'projects', path: '/#projects' },
     { name: 'Experience', section: 'experience', path: '/#experience' },
     { name: 'Security', section: 'security', path: '/#security' },
+    { name: 'Interests', section: 'interests', path: '/#interests' },
     { name: 'Blog', section: 'blog', path: '/blog' },
     { name: 'Contact', section: 'contact', path: '/#contact' },
   ];
@@ -34,7 +35,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
       setScrolled(window.scrollY > 20);
 
       if (isHomePage) {
-        const sections = ['home', 'about', 'skills', 'projects', 'experience', 'security', 'journal', 'contact'];
+        const sections = ['home', 'about', 'skills', 'projects', 'experience', 'security', 'interests', 'journal', 'contact'];
         const scrollPosition = window.scrollY + 140;
 
         for (let i = sections.length - 1; i >= 0; i--) {
@@ -96,16 +97,16 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
-          {/* Logo / Monogram */}
+          {/* Logo / Monogram with subtle hover micro-interaction */}
           <Link
             to="/"
             className="flex items-center space-x-2 group focus:outline-none focus-visible:ring-2 focus-visible:ring-electric rounded"
             aria-label="Clement Palmer Home"
           >
-            <div className="w-10 h-10 rounded-lg bg-panel border border-panel-border flex items-center justify-center font-bold text-lg tracking-tight transition-transform duration-200 group-hover:scale-105 shadow-sm">
+            <div className="w-10 h-10 rounded-lg bg-panel border border-panel-border flex items-center justify-center font-bold text-lg tracking-tight transition-all duration-300 group-hover:scale-105 group-hover:rotate-2 shadow-sm">
               <span className={darkMode ? 'text-white' : 'text-charcoal'}>C</span>
               <span className="text-electric">P</span>
-              <span className="text-electric text-xs -ml-0.5">.</span>
+              <span className="text-electric text-xs -ml-0.5 transition-transform duration-300 group-hover:translate-x-0.5">.</span>
             </div>
             <div className="hidden sm:block text-left">
               <span className={`block text-sm font-semibold tracking-tight transition-colors ${
@@ -127,14 +128,14 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
                 <button
                   key={link.name}
                   onClick={(e) => handleNavClick(link, e)}
-                  className={`px-3 py-1.5 rounded-md text-sm font-medium transition-all duration-200 ${
+                  className={`px-2.5 lg:px-3 py-1.5 rounded-md text-xs lg:text-sm font-medium transition-all duration-200 ${
                     isActive
                       ? darkMode
                         ? 'text-white bg-panel border border-panel-border font-semibold shadow-xs'
                         : 'text-charcoal bg-light-subtle border border-light-border font-semibold shadow-xs'
                       : darkMode
-                      ? 'text-muted hover:text-white hover:bg-panel/50'
-                      : 'text-neutral-600 hover:text-charcoal hover:bg-light-subtle/60'
+                      ? 'text-neutral-400 hover:text-white hover:bg-panel/50'
+                      : 'text-neutral-700 hover:text-charcoal hover:bg-light-subtle/80'
                   }`}
                 >
                   {link.name}
@@ -147,10 +148,10 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
           <div className="flex items-center space-x-3">
             <button
               onClick={() => setDarkMode(!darkMode)}
-              className={`p-2 rounded-lg border transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-electric ${
+              className={`p-2 rounded-lg border transition-all duration-200 transform hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-electric ${
                 darkMode
-                  ? 'bg-panel border-panel-border text-muted hover:text-white hover:border-neutral-600'
-                  : 'bg-light-subtle border-light-border text-neutral-600 hover:text-charcoal hover:border-neutral-400'
+                  ? 'bg-panel border-panel-border text-neutral-300 hover:text-white hover:border-neutral-500'
+                  : 'bg-light-subtle border-light-border text-neutral-700 hover:text-charcoal hover:border-neutral-400 shadow-xs'
               }`}
               aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
               title={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
@@ -161,7 +162,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
             <a
               href={personalInfo.cvPath}
               download="Clement_Palmer_CV.pdf"
-              className="hidden lg:inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider bg-electric hover:bg-electric-hover text-white transition-all duration-200 shadow-sm hover:shadow-blue-glow"
+              className="hidden lg:inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider bg-electric hover:bg-electric-hover text-white transition-all duration-200 shadow-sm hover:shadow-blue-glow transform hover:-translate-y-0.5 active:translate-y-0"
             >
               <span>Download CV</span>
               <ArrowUpRight size={14} />
@@ -205,8 +206,8 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
                       ? 'bg-panel text-electric font-semibold border border-panel-border'
                       : 'bg-light-subtle text-electric font-semibold border border-light-border'
                     : darkMode
-                    ? 'text-muted hover:text-white hover:bg-panel/50'
-                    : 'text-neutral-600 hover:text-charcoal hover:bg-light-subtle'
+                    ? 'text-neutral-300 hover:text-white hover:bg-panel/50'
+                    : 'text-neutral-700 hover:text-charcoal hover:bg-light-subtle'
                 }`}
               >
                 {link.name}

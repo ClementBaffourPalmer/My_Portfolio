@@ -55,8 +55,8 @@ export const About: React.FC<AboutProps> = ({ darkMode }) => {
           {/* LEFT: Secondary Studio Headshot & Academic Credentials (5 Cols) */}
           <div className="lg:col-span-5 space-y-6">
             
-            {/* Editorial Portrait Frame */}
-            <div className={`rounded-xl overflow-hidden border shadow-md p-3 ${
+            {/* Editorial Portrait Frame with subtle hover lift */}
+            <div className={`rounded-xl overflow-hidden border shadow-md p-3 transition-transform duration-300 hover:-translate-y-0.5 ${
               darkMode ? 'bg-panel border-panel-border' : 'bg-white border-light-border'
             }`}>
               <div className="relative aspect-[4/5] rounded-lg overflow-hidden bg-neutral-800">
@@ -70,8 +70,8 @@ export const About: React.FC<AboutProps> = ({ darkMode }) => {
                 {/* Subtle Overlay Tag */}
                 <div className="absolute bottom-3 left-3 right-3 p-2.5 rounded-lg bg-charcoal/90 backdrop-blur-md border border-neutral-700/60 text-white flex items-center justify-between text-xs">
                   <div>
-                    <p className="font-semibold">{personalInfo.fullName}</p>
-                    <p className="text-[11px] text-muted font-mono">Software Developer & Educator</p>
+                    <p className="font-semibold text-white">{personalInfo.fullName}</p>
+                    <p className="text-[11px] text-neutral-300 font-mono">Software Developer & Educator</p>
                   </div>
                   <div className="flex items-center space-x-1 text-electric font-mono text-[11px]">
                     <MapPin size={12} />
@@ -81,8 +81,8 @@ export const About: React.FC<AboutProps> = ({ darkMode }) => {
               </div>
             </div>
 
-            {/* Academic Background Card */}
-            <div className={`p-6 rounded-xl border ${
+            {/* Academic Background Card with High Contrast */}
+            <div className={`p-6 rounded-xl border shadow-xs ${
               darkMode ? 'bg-panel border-panel-border' : 'bg-white border-light-border'
             }`}>
               <div className="flex items-center space-x-3 mb-3">
@@ -90,7 +90,9 @@ export const About: React.FC<AboutProps> = ({ darkMode }) => {
                   <GraduationCap size={20} />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold uppercase tracking-wider text-muted font-mono">
+                  <h3 className={`text-xs font-semibold uppercase tracking-wider font-mono ${
+                    darkMode ? 'text-neutral-400' : 'text-neutral-500'
+                  }`}>
                     Academic Background
                   </h3>
                   <p className={`text-base font-bold ${darkMode ? 'text-white' : 'text-charcoal'}`}>
@@ -98,24 +100,28 @@ export const About: React.FC<AboutProps> = ({ darkMode }) => {
                   </p>
                 </div>
               </div>
-              <p className="text-sm font-medium text-electric mb-2">
+              <p className="text-sm font-semibold text-electric mb-2">
                 {education.degree}
               </p>
-              <p className="text-xs text-muted leading-relaxed mb-4">
+              <p className={`text-xs leading-relaxed mb-4 ${
+                darkMode ? 'text-neutral-300' : 'text-neutral-700'
+              }`}>
                 {education.description}
               </p>
               <div className="pt-3 border-t border-panel-border/50">
-                <p className="text-[11px] font-mono uppercase text-muted mb-2 tracking-wider">
+                <p className={`text-[11px] font-mono uppercase mb-2 tracking-wider ${
+                  darkMode ? 'text-neutral-400' : 'text-neutral-600 font-medium'
+                }`}>
                   Core Foundations:
                 </p>
                 <div className="flex flex-wrap gap-1.5">
                   {education.coursework.map((course) => (
                     <span
                       key={course}
-                      className={`text-[11px] px-2.5 py-1 rounded-md border font-mono ${
+                      className={`text-[11px] px-2.5 py-1 rounded-md border font-mono transition-colors ${
                         darkMode
                           ? 'bg-charcoal border-panel-border text-neutral-300'
-                          : 'bg-light-subtle border-light-border text-neutral-700'
+                          : 'bg-light-subtle border-light-border text-neutral-800 font-medium'
                       }`}
                     >
                       {course}
@@ -130,10 +136,13 @@ export const About: React.FC<AboutProps> = ({ darkMode }) => {
           {/* RIGHT: Professional Narrative & Capability Highlights (7 Cols) */}
           <div className="lg:col-span-7 space-y-8">
             
-            {/* Written Narrative */}
-            <div className="space-y-4 text-base sm:text-lg leading-relaxed text-muted dark:text-muted">
+            {/* Written Narrative with WCAG AA High Contrast in Light Mode */}
+            <div className="space-y-4 text-base sm:text-lg leading-relaxed">
               {personalInfo.aboutBio.map((paragraph, index) => (
-                <p key={index} className="text-neutral-300 dark:text-neutral-300">
+                <p
+                  key={index}
+                  className={darkMode ? 'text-neutral-300' : 'text-neutral-700'}
+                >
                   {paragraph}
                 </p>
               ))}
@@ -144,7 +153,7 @@ export const About: React.FC<AboutProps> = ({ darkMode }) => {
               {highlights.map((item, index) => (
                 <div
                   key={index}
-                  className={`p-5 rounded-xl border transition-all duration-200 hover:border-electric/50 ${
+                  className={`p-5 rounded-xl border transition-all duration-200 hover:border-electric/50 shadow-xs ${
                     darkMode ? 'bg-panel/70 border-panel-border' : 'bg-white border-light-border'
                   }`}
                 >
@@ -156,7 +165,9 @@ export const About: React.FC<AboutProps> = ({ darkMode }) => {
                       {item.title}
                     </h4>
                   </div>
-                  <p className="text-xs leading-relaxed text-muted dark:text-muted">
+                  <p className={`text-xs leading-relaxed ${
+                    darkMode ? 'text-neutral-400' : 'text-neutral-600'
+                  }`}>
                     {item.description}
                   </p>
                 </div>
@@ -165,7 +176,7 @@ export const About: React.FC<AboutProps> = ({ darkMode }) => {
 
             {/* Engineering Principles List */}
             <div className={`p-6 rounded-xl border ${
-              darkMode ? 'bg-panel/40 border-panel-border' : 'bg-light-subtle/80 border-light-border'
+              darkMode ? 'bg-panel/40 border-panel-border' : 'bg-light-subtle border-light-border'
             }`}>
               <h4 className="text-xs font-mono uppercase tracking-wider text-electric font-semibold mb-3">
                 Core Engineering Commitments
@@ -173,25 +184,25 @@ export const About: React.FC<AboutProps> = ({ darkMode }) => {
               <ul className="grid sm:grid-cols-2 gap-3 text-xs">
                 <li className="flex items-start space-x-2">
                   <CheckCircle2 size={16} className="text-electric shrink-0 mt-0.5" />
-                  <span className={darkMode ? 'text-neutral-300' : 'text-neutral-700'}>
+                  <span className={darkMode ? 'text-neutral-300' : 'text-neutral-800 font-medium'}>
                     Transactional integrity & clean database normalization
                   </span>
                 </li>
                 <li className="flex items-start space-x-2">
                   <CheckCircle2 size={16} className="text-electric shrink-0 mt-0.5" />
-                  <span className={darkMode ? 'text-neutral-300' : 'text-neutral-700'}>
+                  <span className={darkMode ? 'text-neutral-300' : 'text-neutral-800 font-medium'}>
                     Type-safe, testable APIs with OpenAPI / Swagger specs
                   </span>
                 </li>
                 <li className="flex items-start space-x-2">
                   <CheckCircle2 size={16} className="text-electric shrink-0 mt-0.5" />
-                  <span className={darkMode ? 'text-neutral-300' : 'text-neutral-700'}>
+                  <span className={darkMode ? 'text-neutral-300' : 'text-neutral-800 font-medium'}>
                     Accessible, low-friction frontend experiences
                   </span>
                 </li>
                 <li className="flex items-start space-x-2">
                   <CheckCircle2 size={16} className="text-electric shrink-0 mt-0.5" />
-                  <span className={darkMode ? 'text-neutral-300' : 'text-neutral-700'}>
+                  <span className={darkMode ? 'text-neutral-300' : 'text-neutral-800 font-medium'}>
                     Defensive software practices & OWASP vulnerability prevention
                   </span>
                 </li>

@@ -9,7 +9,13 @@ export interface ProjectArchitecture {
 export interface Project {
   id: string;
   title: string;
-  category: 'Full-stack Web Application' | 'Accessible Application' | 'Academic Software Project' | 'Educational Platform';
+  category: 
+    | 'Full-stack Web Application'
+    | 'Accessible Application'
+    | 'Academic Software Project'
+    | 'Educational Platform'
+    | 'Python Application / Desktop Utility'
+    | 'Python / Console-Based Application';
   tagline: string;
   description: string;
   longDescription: string;
@@ -22,6 +28,7 @@ export interface Project {
   featured: boolean;
   image?: string;
   badge?: string;
+  codeAvailableOnRequest?: boolean;
 }
 
 export interface SkillItem {

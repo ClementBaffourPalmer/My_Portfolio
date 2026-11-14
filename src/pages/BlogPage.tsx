@@ -48,7 +48,9 @@ export const BlogPage: React.FC<BlogPageProps> = ({ darkMode }) => {
               <BookOpen size={13} />
               <span>CLEMENT PALMER — JOURNAL</span>
             </div>
-            <p className="text-xs font-mono text-muted tracking-wide">
+            <p className={`text-xs font-mono tracking-wide ${
+              darkMode ? 'text-neutral-400' : 'text-neutral-600 font-medium'
+            }`}>
               "Technology. Growth. Experiences. Perspectives."
             </p>
           </div>
@@ -59,7 +61,9 @@ export const BlogPage: React.FC<BlogPageProps> = ({ darkMode }) => {
             </span>
           </h1>
 
-          <p className="text-base sm:text-lg text-muted max-w-3xl leading-relaxed">
+          <p className={`text-base sm:text-lg max-w-3xl leading-relaxed ${
+            darkMode ? 'text-neutral-300' : 'text-neutral-700'
+          }`}>
             A collection of thoughts, experiences, lessons and ideas from my journey through technology, personal growth and everything in between.
           </p>
         </div>
@@ -164,7 +168,9 @@ export const BlogPage: React.FC<BlogPageProps> = ({ darkMode }) => {
                   </p>
                 )}
 
-                <p className="text-sm sm:text-base text-muted leading-relaxed">
+                <p className={`text-sm sm:text-base leading-relaxed ${
+                  darkMode ? 'text-neutral-300' : 'text-neutral-700'
+                }`}>
                   {featuredArticle.excerpt}
                 </p>
 
@@ -177,7 +183,9 @@ export const BlogPage: React.FC<BlogPageProps> = ({ darkMode }) => {
                     <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
                   </Link>
 
-                  <span className="text-[11px] font-mono text-muted">
+                  <span className={`text-[11px] font-mono ${
+                    darkMode ? 'text-neutral-400' : 'text-neutral-600'
+                  }`}>
                     INSPIRATION // STEPPING INTO MY JOURNEY
                   </span>
                 </div>

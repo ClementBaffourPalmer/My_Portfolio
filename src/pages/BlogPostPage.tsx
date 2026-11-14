@@ -210,7 +210,9 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ darkMode }) => {
             }`}>
               About {personalInfo.displayName}
             </h3>
-            <p className="text-xs leading-relaxed text-muted mb-3">
+            <p className={`text-xs leading-relaxed mb-3 ${
+              darkMode ? 'text-neutral-300' : 'text-neutral-700'
+            }`}>
               Full-Stack Developer, Software Engineer, and ICT Educator with a B.Sc. in ICT Education from UEW. Writing on software architecture, practical engineering, cybersecurity, and personal growth.
             </p>
             <div className="flex items-center space-x-3 text-xs font-mono">
