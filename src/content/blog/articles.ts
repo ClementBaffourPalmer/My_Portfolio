@@ -270,21 +270,6 @@ Building StepEase taught me that accessible software is simply better software f
 `
   },
   {
-    title: "Draft: The Future of Biometric Attendance Systems in Higher Education",
-    slug: "future-of-biometric-attendance-systems",
-    subtitle: "Internal research notes on privacy, latency, and computer vision deployment in academic institutions.",
-    excerpt: "This is a working draft summarizing findings from the SmartLibrary Tracker project at UEW. It explores real-world camera debounce filters and facial embedding vectors.",
-    category: "Software Engineering",
-    tags: ["Draft", "Computer Vision", "AI", "Research"],
-    publishedAt: "2026-11-12",
-    status: "draft",
-    featured: false,
-    readingTime: "3 min read",
-    content: `
-*This article is currently an unreleased draft and should not appear in public production listings.*
-`
-  },
-  {
     title: "From Neighbourhood Wi-Fi Curiosity to Cybersecurity: Where It All Began",
     slug: "from-neighbourhood-wifi-curiosity-to-cybersecurity",
     subtitle: "How a childhood thirst for connectivity sparked an enduring journey into networks, security, and ethical software engineering.",

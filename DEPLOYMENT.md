@@ -65,6 +65,26 @@ If you prefer deploying directly from your terminal:
 
 ---
 
+## 🐙 Method 3: Cloudflare Pages Git Integration (Automatic Deployment via GitHub)
+
+Since you are pushing this code to GitHub, you can connect your repository to Cloudflare Pages for automatic continuous deployment on every `git push`:
+
+1. Log into your [Cloudflare Dashboard](https://dash.cloudflare.com/).
+2. Navigate to **Compute (Workers) > Workers & Pages** (or **Pages**).
+3. Click **Create Application** > select the **Pages** tab.
+4. Click **Connect to Git**.
+5. Select your GitHub account and choose your portfolio repository (`portfolio`).
+6. Configure the build settings:
+   - **Framework preset**: `Vite` (or `None`)
+   - **Build command**: `npm run build`
+   - **Build output directory**: `dist`
+   - **Environment variables** (optional):
+     - `NODE_VERSION`: `20`
+7. Click **Save and Deploy**.
+8. Cloudflare will automatically clone, build, and deploy your site on its global edge network. Future pushes to `master` / `main` will automatically trigger new production deployments.
+
+---
+
 ## 📂 Asset Management Reference
 
 - **To update your CV**:

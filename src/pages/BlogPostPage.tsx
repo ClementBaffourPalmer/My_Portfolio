@@ -72,7 +72,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ darkMode }) => {
   return (
     <article className="pt-28 pb-20 lg:pt-36 lg:pb-28">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Navigation Breadcrumbs */}
         <div className="mb-8 flex items-center justify-between">
           <Link
@@ -90,7 +90,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ darkMode }) => {
 
         {/* Article Header Area */}
         <header className="border-b pb-10 mb-10 subtle-border">
-          
+
           {/* Category & Status */}
           <div className="flex flex-wrap items-center gap-3 mb-4">
             <span className="text-xs font-mono uppercase px-3 py-1 rounded bg-electric/10 text-electric border border-electric/20 font-semibold">
@@ -103,9 +103,8 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ darkMode }) => {
           </div>
 
           {/* Main Title */}
-          <h1 className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.15] mb-4 ${
-            darkMode ? 'text-white' : 'text-charcoal'
-          }`}>
+          <h1 className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-[1.15] mb-4 ${darkMode ? 'text-white' : 'text-charcoal'
+            }`}>
             {article.title}
           </h1>
 
@@ -175,11 +174,10 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ darkMode }) => {
             {article.tags.map((tag) => (
               <span
                 key={tag}
-                className={`inline-flex items-center space-x-1 text-xs font-mono px-3 py-1 rounded-md border ${
-                  darkMode
+                className={`inline-flex items-center space-x-1 text-xs font-mono px-3 py-1 rounded-md border ${darkMode
                     ? 'bg-panel border-panel-border text-neutral-300'
                     : 'bg-light-subtle border-light-border text-neutral-700'
-                }`}
+                  }`}
               >
                 <Tag size={12} className="text-electric" />
                 <span>{tag}</span>
@@ -194,9 +192,8 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ darkMode }) => {
         </div>
 
         {/* Author Footnote Dossier */}
-        <div className={`max-w-3xl mx-auto p-6 rounded-2xl border mb-16 flex items-start space-x-4 ${
-          darkMode ? 'bg-panel border-panel-border' : 'bg-white border-light-border'
-        }`}>
+        <div className={`max-w-3xl mx-auto p-6 rounded-2xl border mb-16 flex items-start space-x-4 ${darkMode ? 'bg-panel border-panel-border' : 'bg-white border-light-border'
+          }`}>
           <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-electric shrink-0 shadow-sm">
             <img
               src={personalInfo.headshotImage}
@@ -205,21 +202,19 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ darkMode }) => {
             />
           </div>
           <div>
-            <h3 className={`text-base font-bold tracking-tight mb-1 ${
-              darkMode ? 'text-white' : 'text-charcoal'
-            }`}>
+            <h3 className={`text-base font-bold tracking-tight mb-1 ${darkMode ? 'text-white' : 'text-charcoal'
+              }`}>
               About {personalInfo.displayName}
             </h3>
-            <p className={`text-xs leading-relaxed mb-3 ${
-              darkMode ? 'text-neutral-300' : 'text-neutral-700'
-            }`}>
-              Full-Stack Developer, Software Engineer, and ICT Educator with a B.Sc. in ICT Education from UEW. Writing on software architecture, practical engineering, cybersecurity, and personal growth.
-            </p>
-            <div className="flex items-center space-x-3 text-xs font-mono">
-              <Link to="/#about" className="text-electric hover:underline">
-                View Full Biography &rarr;
-              </Link>
-            </div>
+              <p className={`text-xs leading-relaxed mb-3 ${darkMode ? 'text-neutral-300' : 'text-neutral-700'
+                }`}>
+                Full-Stack Developer, Software Engineer, and ICT Educator with a B.Sc. in ICT Education from UEW. Writing on software architecture, practical engineering, cybersecurity, and personal growth.
+              </p>
+              <div className="flex items-center space-x-3 text-xs font-mono">
+                <Link to="/#about" className="text-electric hover:underline">
+                  View Full Biography &rarr;
+                </Link>
+              </div>
           </div>
         </div>
 
@@ -229,16 +224,14 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ darkMode }) => {
             {previous ? (
               <Link
                 to={`/blog/${previous.slug}`}
-                className={`p-4 rounded-xl border transition-all hover:border-electric group text-left ${
-                  darkMode ? 'bg-panel/50 border-panel-border' : 'bg-white border-light-border'
-                }`}
+                className={`p-4 rounded-xl border transition-all hover:border-electric group text-left ${darkMode ? 'bg-panel/50 border-panel-border' : 'bg-white border-light-border'
+                  }`}
               >
                 <span className="text-[10px] font-mono uppercase text-muted block mb-1">
                   &larr; Older Essay
                 </span>
-                <p className={`text-xs sm:text-sm font-semibold line-clamp-2 group-hover:text-electric transition-colors ${
-                  darkMode ? 'text-white' : 'text-charcoal'
-                }`}>
+                <p className={`text-xs sm:text-sm font-semibold line-clamp-2 group-hover:text-electric transition-colors ${darkMode ? 'text-white' : 'text-charcoal'
+                  }`}>
                   {previous.title}
                 </p>
               </Link>
@@ -247,16 +240,14 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ darkMode }) => {
             {next ? (
               <Link
                 to={`/blog/${next.slug}`}
-                className={`p-4 rounded-xl border transition-all hover:border-electric group text-right ${
-                  darkMode ? 'bg-panel/50 border-panel-border' : 'bg-white border-light-border'
-                }`}
+                className={`p-4 rounded-xl border transition-all hover:border-electric group text-right ${darkMode ? 'bg-panel/50 border-panel-border' : 'bg-white border-light-border'
+                  }`}
               >
                 <span className="text-[10px] font-mono uppercase text-muted block mb-1">
                   Newer Essay &rarr;
                 </span>
-                <p className={`text-xs sm:text-sm font-semibold line-clamp-2 group-hover:text-electric transition-colors ${
-                  darkMode ? 'text-white' : 'text-charcoal'
-                }`}>
+                <p className={`text-xs sm:text-sm font-semibold line-clamp-2 group-hover:text-electric transition-colors ${darkMode ? 'text-white' : 'text-charcoal'
+                  }`}>
                   {next.title}
                 </p>
               </Link>
@@ -268,9 +259,8 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ darkMode }) => {
         {relatedArticles.length > 0 && (
           <div className="border-t pt-12 subtle-border">
             <div className="flex items-center justify-between mb-8">
-              <h3 className={`text-xl font-bold tracking-tight ${
-                darkMode ? 'text-white' : 'text-charcoal'
-              }`}>
+              <h3 className={`text-xl font-bold tracking-tight ${darkMode ? 'text-white' : 'text-charcoal'
+                }`}>
                 Related Perspectives & Notes
               </h3>
               <Link to="/blog" className="text-xs font-mono text-electric hover:underline">
