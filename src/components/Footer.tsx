@@ -101,13 +101,7 @@ export const Footer: React.FC<FooterProps> = ({ darkMode }) => {
                 <Link to="/#experience" className={`transition-colors ${darkMode ? 'text-neutral-400 hover:text-electric' : 'text-neutral-700 hover:text-electric font-medium'}`}>Experience</Link>
               </li>
               <li>
-                <Link to="/#security" className={`transition-colors ${darkMode ? 'text-neutral-400 hover:text-electric' : 'text-neutral-700 hover:text-electric font-medium'}`}>Cybersecurity</Link>
-              </li>
-              <li>
-                <Link to="/#interests" className={`transition-colors ${darkMode ? 'text-neutral-400 hover:text-electric' : 'text-neutral-700 hover:text-electric font-medium'}`}>Interests</Link>
-              </li>
-              <li>
-                <Link to="/blog" className="text-electric font-semibold hover:underline font-mono">Journal (Blog)</Link>
+                <Link to="/blog" className="text-electric font-semibold hover:underline font-mono">Journal</Link>
               </li>
               <li>
                 <Link to="/#contact" className={`transition-colors ${darkMode ? 'text-neutral-400 hover:text-electric' : 'text-neutral-700 hover:text-electric font-medium'}`}>Contact</Link>

@@ -24,8 +24,6 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
     { name: 'Skills', section: 'skills', path: '/#skills' },
     { name: 'Projects', section: 'projects', path: '/#projects' },
     { name: 'Experience', section: 'experience', path: '/#experience' },
-    { name: 'Security', section: 'security', path: '/#security' },
-    { name: 'Interests', section: 'interests', path: '/#interests' },
     { name: 'Blog', section: 'blog', path: '/blog' },
     { name: 'Contact', section: 'contact', path: '/#contact' },
   ];
@@ -35,7 +33,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
       setScrolled(window.scrollY > 20);
 
       if (isHomePage) {
-        const sections = ['home', 'about', 'skills', 'projects', 'experience', 'security', 'interests', 'journal', 'contact'];
+        const sections = ['home', 'about', 'skills', 'projects', 'experience', 'blog-preview', 'contact'];
         const scrollPosition = window.scrollY + 140;
 
         for (let i = sections.length - 1; i >= 0; i--) {
@@ -43,7 +41,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
           if (section) {
             const top = section.offsetTop;
             if (scrollPosition >= top) {
-              setActiveSection(sections[i] === 'journal' ? 'blog' : sections[i]);
+              setActiveSection(sections[i] === 'blog-preview' ? 'blog' : sections[i]);
               break;
             }
           }

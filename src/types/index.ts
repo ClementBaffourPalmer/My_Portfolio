@@ -9,13 +9,7 @@ export interface ProjectArchitecture {
 export interface Project {
   id: string;
   title: string;
-  category: 
-    | 'Full-stack Web Application'
-    | 'Accessible Application'
-    | 'Academic Software Project'
-    | 'Educational Platform'
-    | 'Python Application / Desktop Utility'
-    | 'Python / Console-Based Application';
+  category: string;
   tagline: string;
   description: string;
   longDescription: string;
