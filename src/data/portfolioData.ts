@@ -4,11 +4,11 @@ export const personalInfo = {
   fullName: "Clement Kwesi Baffour Palmer",
   displayName: "Clement Palmer",
   title: "Full-Stack Developer | Software Engineer | Cybersecurity Enthusiast",
-  headline: "Full-Stack Developer & Software Engineer",
-  intro: "I'm a full-stack developer interested in building practical software solutions and exploring how technology can solve real-world problems. My interests include backend development, software engineering and cybersecurity.",
+  headline: "Full-Stack Developer and Software Engineer",
+  intro: "I'm a full-stack developer who enjoys building practical software solutions and exploring how technology can solve real-world problems. My interests include backend development, software engineering and cybersecurity.",
   aboutBio: [
-    "I am a software developer holding a Bachelor of Science in Information and Communication Technology Education from the University of Education, Winneba (UEW), Ghana, and currently studying a Bachelor's Degree in Computer Science at University of the People. My journey into software development began with a fascination for computing systems and has evolved into engineering practical full-stack web applications that solve tangible real-world problems.",
-    "My technical work centers on backend development, scalable REST APIs, and relational databases using Python, Django, and React. Alongside full-stack engineering, I have a growing focus on cybersecurity and ethical hacking, prioritizing defensible application architecture, secure authentication, and resilient software boundaries."
+    "I am a software developer holding a Bachelor of Science in Information and Communication Technology Education from the University of Education, Winneba (UEW), Ghana, and currently studying a Bachelor's Degree in Computer Science at the University of the People. My journey into software development began with a fascination for computing systems and has since grown into building practical full-stack web applications that solve real-world problems.",
+    "My technical work centres on backend development, scalable REST APIs, and relational databases using Python, Django, and React. Alongside full-stack engineering, I have a growing interest in cybersecurity and ethical hacking, with a focus on defensible application architecture, secure authentication, and resilient software design."
   ],
   status: "Available for Software Engineering Opportunities",
   email: "clementpalmer84@gmail.com",
@@ -34,8 +34,8 @@ export const projectsData: Project[] = [
     title: "Servora",
     category: "Full-Stack Platform",
     tagline: "Service Booking & Management Platform",
-    description: "An end-to-end service marketplace enabling verified providers to publish offerings and customers to discover, schedule, and pay for services with automated slot reservations and secure REST APIs.",
-    longDescription: "Servora is a modular service marketplace engineered with Django and Django REST Framework. It features role-based access for providers and clients, automated slot reservation transactions to prevent double-booking, and payment verification gateways.",
+    description: "A service marketplace where verified providers can publish their offerings and customers can discover, schedule, and pay for services, with automated slot reservations and secure REST APIs.",
+    longDescription: "Servora is a modular service marketplace built with Django and Django REST Framework. It supports role-based access for providers and clients, uses atomic transactions to prevent duplicate bookings, and includes payment verification gateways.",
     technologies: ["Python", "Django", "Django REST Framework", "MySQL", "JavaScript", "REST APIs"],
     featured: true,
     githubUrl: "https://github.com/ClementBaffourPalmer/Servora-",
@@ -45,11 +45,11 @@ export const projectsData: Project[] = [
       frontend: "Responsive Bootstrap and modern JavaScript interface communicating with token-authenticated REST endpoints.",
       backend: "Django 5 REST Framework featuring custom permissions, atomic transactions, and automated slot reservation logic.",
       database: "Normalized MySQL schema with referential constraints between providers, offerings, schedules, and booking records.",
-      security: "Anti-CSRF protection, input validation serializers, role-based authorization (RBAC), and parameterized queries."
+      security: "Anti-CSRF protection, input validation serializers, role-based authorization (RBAC), and parameterised queries."
     },
     challenges: [
-      "Preventing double-booking race conditions during concurrent slot selections using atomic database transactions.",
-      "Structuring a clean REST API layer supporting both web clients and external consumers."
+      "Preventing duplicate booking conflicts during concurrent slot selections using atomic database transactions.",
+      "Structuring a clean REST API layer that works for both web clients and external consumers."
     ],
     highlights: [
       "Provider schedule and catalog management dashboard.",
@@ -63,7 +63,7 @@ export const projectsData: Project[] = [
     category: "Web Application",
     tagline: "Accessible Task & Workflow Platform",
     description: "A daily task management application engineered with accessible ergonomics, sensory-friendly palettes, and low-stimulation principles to eliminate cognitive overload.",
-    longDescription: "StepEase is a productivity application focused on digital accessibility (WCAG AA). It implements fluid drag-and-drop task prioritization, keyboard navigation, calm color contrast, and offline-first state synchronization.",
+    longDescription: "StepEase is a productivity application built with accessibility in mind (WCAG AA). It includes drag-and-drop task prioritisation, full keyboard navigation, calm colour contrast, and state synchronisation that works offline.",
     technologies: ["React", "TypeScript", "Tailwind CSS", "@dnd-kit", "Axios"],
     featured: true,
     githubUrl: "https://github.com/ClementBaffourPalmer",
@@ -76,13 +76,13 @@ export const projectsData: Project[] = [
       security: "Client-side XSS sanitization on task markdown and privacy-first local data retention."
     },
     challenges: [
-      "Building keyboard-accessible drag-and-drop reordering with live-region screen reader announcements.",
-      "Maintaining high contrast compliance while preserving a soothing, low-stimulation color system."
+      "Building keyboard-accessible drag-and-drop reordering with screen reader announcements using live regions.",
+      "Maintaining high contrast compliance while keeping a calm, low-stimulation colour palette."
     ],
     highlights: [
-      "Sensory-friendly interface designed to minimize cognitive fatigue.",
-      "Keyboard-accessible task prioritization powered by @dnd-kit.",
-      "Offline-first state synchronization ensuring zero data loss."
+      "Sensory-friendly interface designed to reduce cognitive fatigue.",
+      "Keyboard-accessible task prioritisation powered by @dnd-kit.",
+      "State synchronisation that continues working even without a network connection."
     ]
   },
   {
@@ -136,9 +136,9 @@ export const projectsData: Project[] = [
       "Validating numeric currency entries and parsing chronological dates in an interactive CLI."
     ],
     highlights: [
-      "Desktop Voice Recorder with real-time timer and direct-to-disk audio export.",
-      "Terminal Expense Tracker with daily, weekly, and monthly spending calculations.",
-      "Completely self-contained; zero unnecessary third-party dependencies."
+      "Desktop Voice Recorder with a real-time timer and audio saved directly to disk.",
+      "Terminal Expense Tracker with daily, weekly, and monthly spending summaries.",
+      "Completely self-contained with no unnecessary third-party dependencies."
     ]
   }
 ];
@@ -205,20 +205,20 @@ export const experienceData: ExperienceItem[] = [
     role: "Independent Software Engineer",
     organization: "Personal & Academic Projects",
     location: "Ghana",
-    period: "2024 – Present",
+    period: "2024 to Present",
     type: "engineering",
-    summary: "Architecting and implementing full-stack web applications, REST APIs, and database-driven digital solutions including Servora, StepEase, and SmartLibrary Tracker.",
+    summary: "Building full-stack web applications, REST APIs, and database-driven solutions including Servora, StepEase, and SmartLibrary Tracker.",
     responsibilities: [],
     skillsGained: ["Full-Stack Architecture", "Python & Django", "React & TypeScript", "REST APIs", "Relational Databases"]
   },
   {
     id: "palisade-academy",
-    role: "ICT Educator — Teaching Practice",
+    role: "ICT Educator (Teaching Practice)",
     organization: "Palisade Academy",
     location: "Ghana",
     period: "Approx. 6 Months",
     type: "teaching",
-    summary: "Led ICT instruction and technical curriculum delivery for secondary students, teaching foundational computational logic, computer architecture, and digital literacy.",
+    summary: "Led ICT instruction and curriculum delivery for secondary students, teaching foundational computational logic, computer architecture, and digital literacy.",
     responsibilities: [],
     skillsGained: ["Technical Communication", "Instructional Design", "Mentorship"]
   },
@@ -229,7 +229,7 @@ export const experienceData: ExperienceItem[] = [
     location: "Ghana",
     period: "Previous Teaching Practice",
     type: "teaching",
-    summary: "Conducted practical ICT instruction, software applications training, and digital literacy development to foster computational confidence among learners.",
+    summary: "Taught practical ICT skills, software applications, and digital literacy to help learners build confidence with technology.",
     responsibilities: [],
     skillsGained: ["Technical Instruction", "Digital Literacy", "Classroom Communication"]
   },
@@ -240,7 +240,7 @@ export const experienceData: ExperienceItem[] = [
     location: "Ghana",
     period: "Previous Teaching Practice",
     type: "teaching",
-    summary: "Delivered technology coursework and practical problem-solving exercises, cultivating disciplined learning habits and digital responsibility.",
+    summary: "Delivered technology coursework and practical problem-solving exercises, building disciplined learning habits and digital responsibility among students.",
     responsibilities: [],
     skillsGained: ["Curriculum Delivery", "Technical Mentoring", "Student Engagement"]
   }
@@ -252,7 +252,7 @@ export const educationData: EducationItem[] = [
     institution: "University of the People",
     location: "Pasadena, CA (Online)",
     period: "In Progress",
-    description: "Rigorous undergraduate computer science curriculum covering software engineering, algorithmic problem solving, operating systems, and computer architecture.",
+    description: "A thorough undergraduate computer science programme covering software engineering, algorithmic problem solving, operating systems, and computer architecture.",
     coursework: [
       "Computer Science Fundamentals",
       "Data Structures & Algorithms",
@@ -265,7 +265,7 @@ export const educationData: EducationItem[] = [
     institution: "University of Education, Winneba (UEW)",
     location: "Winneba, Ghana",
     period: "Completed",
-    description: "Academic program synthesizing computer science fundamentals, data structures, network systems, software engineering, and technical pedagogy.",
+    description: "An academic programme combining computer science fundamentals, data structures, network systems, software engineering, and technical pedagogy.",
     coursework: [
       "Data Structures & Algorithms",
       "Database Systems",

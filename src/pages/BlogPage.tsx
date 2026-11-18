@@ -23,7 +23,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({ darkMode }) => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Journal // Beyond the Code — Clement Palmer";
+    document.title = "Journal // Beyond the Code | Clement Palmer";
   }, []);
 
   return (
@@ -46,7 +46,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({ darkMode }) => {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
             <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-md text-[11px] font-mono tracking-wider uppercase text-electric bg-electric/10 border border-electric/20">
               <BookOpen size={13} />
-              <span>CLEMENT PALMER — JOURNAL</span>
+              <span>CLEMENT PALMER / JOURNAL</span>
             </div>
             <p className={`text-xs font-mono tracking-wide ${
               darkMode ? 'text-neutral-400' : 'text-neutral-600 font-medium'

@@ -32,7 +32,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ darkMode }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
     if (article) {
-      document.title = `${article.title} — Clement Palmer Journal`;
+      document.title = `${article.title} | Clement Palmer Journal`;
 
       // Update meta description dynamically
       const metaDescription = document.querySelector('meta[name="description"]');

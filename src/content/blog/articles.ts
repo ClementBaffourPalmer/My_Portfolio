@@ -5,7 +5,7 @@ export const blogArticles: BlogPost[] = [
     title: "Stepping Into My Journey: From ICT Classrooms to Systems Engineering",
     slug: "stepping-into-my-journey",
     subtitle: "Reflections on curiosity, discipline, and the pursuit of practical software engineering.",
-    excerpt: "Every developer has an inflection point—the moment when code ceases to be a theoretical puzzle and becomes a vehicle for solving tangible problems. Here is how my background in ICT education anchored my ambition in software engineering.",
+    excerpt: "Every developer has a turning point. The moment when code stops being a theoretical puzzle and becomes a way to solve real problems. Here is how my background in ICT education anchored my ambition in software engineering.",
     category: "My Journey",
     tags: ["Journey", "Reflections", "Growth", "Ghana", "Engineering"],
     publishedAt: "2026-10-18",
@@ -39,7 +39,7 @@ This pedagogy taught me three lasting engineering virtues:
 
 As my work broadened from academic projects like the **SmartLibrary Tracker** to comprehensive multi-service platforms like **Servora**, my priorities crystallized. I am drawn to full-stack engineering not simply because I enjoy styling buttons or configuring servers, but because I believe the most impactful engineers are those who understand the entire pipeline.
 
-From the database query and serialization boundary to the accessible frontend interaction—and critically, the security guarantees that protect user data—every tier matters.
+From the database query and serialisation layer to the accessible frontend interaction, and critically, the security guarantees that protect user data, every tier matters.
 
 Stepping into this journey means holding myself to international standards: writing maintainable code, communicating technical decisions transparently, and constantly expanding my depth.
 
@@ -51,8 +51,8 @@ Stepping into this journey means holding myself to international standards: writ
   {
     title: "Architecting Servora: Lessons in Django, DRF, and Relational Boundaries",
     slug: "architecting-servora-lessons-in-django-and-drf",
-    subtitle: "What building an end-to-end multi-service booking marketplace taught me about concurrency, serializers, and clean architecture.",
-    excerpt: "A deep dive into the technical challenges of architecting Servora—from preventing slot reservation race conditions to designing clean REST serializers for customer and provider workflows.",
+    subtitle: "What building a full service booking marketplace taught me about concurrency, serialisers, and clean architecture.",
+    excerpt: "A deep dive into the technical challenges of architecting Servora, from preventing slot reservation race conditions to designing clean REST serialisers for customer and provider workflows.",
     category: "Software Engineering",
     tags: ["Django", "Python", "REST APIs", "Database Design", "Architecture"],
     publishedAt: "2026-09-24",
@@ -150,7 +150,7 @@ In early software engineering training, success is often measured by a simple me
 
 Does the form submit? Does the API return status 200? Does the database store the user record?
 
-However, as you progress into systems engineering, you realize that functional correctness is only half the battle. A system that works perfectly when provided valid input—but crashes, leaks memory, or exposes unauthorized records when handed malicious input—is a fundamentally broken system.
+However, as you progress into systems engineering, you realise that functional correctness is only half the battle. A system that works perfectly when given valid input but crashes, leaks memory, or exposes unauthorised records when handed malicious input is a fundamentally broken system.
 
 > *"Security is not a feature you enable before deployment; it is a discipline that dictates every architectural decision from day one."*
 
@@ -311,7 +311,7 @@ The desire to simply "get online" dissolved. In its place emerged a far deeper a
 
 As my technical knowledge grew, so did my understanding of the ethical boundaries governing software engineering and computing. 
 
-Discovering a security vulnerability is not an invitation to exploit; it is a mandate to protect. Breaking into someone's private network without authorization is not just wrong—it undermines the foundational trust that allows digital society to function.
+Discovering a security vulnerability is not an invitation to exploit it. It is a responsibility to protect. Breaking into someone's private network without authorisation is not just wrong, it undermines the foundational trust that allows digital society to function.
 
 This realization marked the true beginning of my journey into **cybersecurity and ethical penetration testing**. 
 
