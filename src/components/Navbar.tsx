@@ -89,7 +89,9 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
           ? darkMode
             ? 'bg-charcoal/90 backdrop-blur-md border-b border-panel-border/80 py-3 shadow-lg'
             : 'bg-white/90 backdrop-blur-md border-b border-light-border/80 py-3 shadow-sm'
-          : 'bg-transparent py-5'
+          : darkMode
+            ? 'bg-transparent py-5'
+            : 'bg-white/80 backdrop-blur-md border-b border-light-border/50 py-3.5 shadow-xs'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

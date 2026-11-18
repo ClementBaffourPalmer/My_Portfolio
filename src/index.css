@@ -3,24 +3,72 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
+  :root,
+  .dark {
     --color-electric: #2878FF;
     --color-charcoal: #111318;
     --color-panel: #20242D;
     --color-white: #FFFFFF;
-    --color-light-grey: #F4F5F7;
+    --color-light-grey: #F5F4EF;
     
     /* Semantic typography variables for dark mode (default) */
     --text-primary: #FFFFFF;
     --text-body: #D1D5DB;
     --text-secondary: #94A3B8;
+
+    /* Hero Background Video & Scrim System (Dark Mode: Cinematic Rich Depth) */
+    --hero-video-invert: 0;
+    --hero-video-hue-rotate: 0deg;
+    --hero-video-brightness: 1;
+    --hero-video-contrast: 1.05;
+    --hero-video-saturate: 1.10;
+    --hero-video-opacity: 0.72;
+    --hero-video-filter: invert(var(--hero-video-invert)) hue-rotate(var(--hero-video-hue-rotate)) brightness(var(--hero-video-brightness)) contrast(var(--hero-video-contrast)) saturate(var(--hero-video-saturate));
+
+    --hero-poster-opacity: 0.70;
+    --hero-poster-filter: invert(var(--hero-video-invert)) hue-rotate(var(--hero-video-hue-rotate)) brightness(var(--hero-video-brightness)) contrast(var(--hero-video-contrast)) saturate(var(--hero-video-saturate));
+
+    --hero-overlay-from: rgba(17, 19, 24, 0.88);
+    --hero-overlay-via: rgba(17, 19, 24, 0.60);
+    --hero-overlay-to: rgba(17, 19, 24, 0.15);
+
+    --hero-bottom-fade-from: rgba(17, 19, 24, 1);
+    --hero-bottom-fade-via: rgba(17, 19, 24, 0.50);
+
+    --hero-ambient-glow: rgba(40, 120, 255, 0.15);
+    --hero-grid-opacity: 0.07;
   }
 
   .light {
-    /* Semantic typography variables for light mode */
-    --text-primary: #111318;
+    /* Semantic typography variables for light mode (Warm Editorial Charcoal) */
+    --text-primary: #14171A;
     --text-body: #374151;
-    --text-secondary: #4B5563;
+    --text-secondary: #5F6570;
+
+    /* Hero Background Video (Light Mode: MATCH DARK MODE VISIBILITY & NATURAL COLOURS)
+       Preserve original visual detail, rich natural colours, contrast and depth!
+       No inversion, no washing out, equal prominence! */
+    --hero-video-invert: 0;
+    --hero-video-hue-rotate: 0deg;
+    --hero-video-brightness: 1;
+    --hero-video-contrast: 1.05;
+    --hero-video-saturate: 1.10;
+    --hero-video-opacity: 0.72;
+    --hero-video-filter: invert(var(--hero-video-invert)) hue-rotate(var(--hero-video-hue-rotate)) brightness(var(--hero-video-brightness)) contrast(var(--hero-video-contrast)) saturate(var(--hero-video-saturate));
+
+    --hero-poster-opacity: 0.70;
+    --hero-poster-filter: invert(var(--hero-video-invert)) hue-rotate(var(--hero-video-hue-rotate)) brightness(var(--hero-video-brightness)) contrast(var(--hero-video-contrast)) saturate(var(--hero-video-saturate));
+
+    /* Localized Text Protection Overlay (Warm Ivory Gradient on the left) */
+    --hero-overlay-from: rgba(245, 244, 239, 0.94);
+    --hero-overlay-via: rgba(245, 244, 239, 0.78);
+    --hero-overlay-to: rgba(245, 244, 239, 0);
+
+    --hero-bottom-fade-from: rgba(245, 244, 239, 1);
+    --hero-bottom-fade-via: rgba(245, 244, 239, 0.55);
+
+    --hero-ambient-glow: rgba(40, 120, 255, 0.12);
+    --hero-grid-opacity: 0.05;
   }
 
   html {
@@ -45,7 +93,7 @@
   }
 
   .light ::-webkit-scrollbar-track {
-    background: #F4F5F7;
+    background: #F5F4EF;
   }
 
   ::-webkit-scrollbar-thumb {
@@ -54,7 +102,7 @@
   }
 
   .light ::-webkit-scrollbar-thumb {
-    background: #D1D5DB;
+    background: #D8D5CD;
   }
 
   ::-webkit-scrollbar-thumb:hover {
@@ -69,7 +117,7 @@
   }
   
   .light .subtle-border {
-    border-color: #E2E5EA;
+    border-color: #E5E2D9;
   }
 
   .panel-surface {
@@ -77,7 +125,7 @@
   }
 
   .light .panel-surface {
-    background-color: #FFFFFF;
+    background-color: #FAF9F5;
   }
 
   .page-surface {
@@ -85,7 +133,16 @@
   }
 
   .light .page-surface {
-    background-color: #F4F5F7;
+    background-color: #F5F4EF;
+  }
+
+  /* Warm ivory mapping for light mode surfaces and borders */
+  .light .bg-white {
+    background-color: #FAF9F5;
+  }
+
+  .light .border-light-border {
+    border-color: #E5E2D9;
   }
 
   /* Typography Contrast Utilities */
@@ -108,6 +165,31 @@
   }
   .dark .text-contrast-secondary {
     color: #94A3B8;
+  }
+
+  /* Hero Video & Scrim System Utilities */
+  .hero-video-surface {
+    filter: var(--hero-video-filter);
+    opacity: var(--hero-video-opacity);
+    transition: filter 700ms cubic-bezier(0.4, 0, 0.2, 1), opacity 700ms cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: filter, opacity;
+  }
+
+  .hero-poster-surface {
+    filter: var(--hero-poster-filter);
+    opacity: var(--hero-poster-opacity);
+    transition: filter 700ms cubic-bezier(0.4, 0, 0.2, 1), opacity 700ms cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: filter, opacity;
+  }
+
+  .hero-grid-surface {
+    opacity: var(--hero-grid-opacity);
+    transition: opacity 700ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hero-glow-surface {
+    background: radial-gradient(circle, var(--hero-ambient-glow) 0%, transparent 70%);
+    transition: background 700ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
