@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUp, Github, Linkedin, Mail, ShieldCheck } from 'lucide-react';
+import { ArrowUp, Github, Linkedin, Mail } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 interface FooterProps {
@@ -82,7 +82,7 @@ export const Footer: React.FC<FooterProps> = ({ darkMode }) => {
             <p className={`text-xs font-mono uppercase tracking-wider font-semibold ${
               darkMode ? 'text-white' : 'text-charcoal'
             }`}>
-              Navigation Hierarchy
+              Navigation
             </p>
             <ul className="grid grid-cols-2 gap-2 text-xs">
               <li>
@@ -112,8 +112,8 @@ export const Footer: React.FC<FooterProps> = ({ darkMode }) => {
             </ul>
           </div>
 
-          {/* Back to Top & Build Status (3 Cols) */}
-          <div className="md:col-span-3 space-y-4 md:text-right">
+          {/* Back to Top (3 Cols) */}
+          <div className="md:col-span-3 md:text-right">
             <button
               onClick={scrollToTop}
               className={`inline-flex items-center space-x-2 px-3.5 py-2 rounded-lg text-xs font-mono border transition-all transform hover:-translate-y-0.5 active:translate-y-0 ${
@@ -125,29 +125,16 @@ export const Footer: React.FC<FooterProps> = ({ darkMode }) => {
               <span>Back to Top</span>
               <ArrowUp size={14} className="text-electric" />
             </button>
-
-            <div className={`text-[11px] font-mono space-y-1 ${
-              darkMode ? 'text-neutral-400' : 'text-neutral-600'
-            }`}>
-              <div className="flex items-center md:justify-end space-x-1.5 text-emerald-400 font-semibold">
-                <ShieldCheck size={13} />
-                <span>DIRECT_UPLOAD_READY</span>
-              </div>
-              <p>Cloudflare Pages Architecture</p>
-            </div>
           </div>
 
         </div>
 
         {/* Bottom Bar */}
-        <div className={`mt-12 pt-6 border-t border-panel-border/40 flex flex-col sm:flex-row items-center justify-between text-[11px] font-mono gap-4 ${
+        <div className={`mt-10 pt-5 border-t border-panel-border/40 text-center text-[11px] font-mono ${
           darkMode ? 'text-neutral-400' : 'text-neutral-600'
         }`}>
           <p>
             &copy; {new Date().getFullYear()} {personalInfo.fullName}. All rights reserved.
-          </p>
-          <p className="flex items-center space-x-1">
-            <span>Engineered with React 18, TypeScript & Tailwind CSS</span>
           </p>
         </div>
       </div>
