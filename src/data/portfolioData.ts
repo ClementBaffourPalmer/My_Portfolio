@@ -1,4 +1,4 @@
-import { Project, SkillCategory, ExperienceItem, EducationItem } from '../types';
+import { Project, ExperienceItem, EducationItem } from '../types';
 
 export const personalInfo = {
   fullName: "Clement Kwesi Baffour Palmer",
@@ -34,7 +34,7 @@ export const projectsData: Project[] = [
     title: "Servora",
     category: "Full-Stack Platform",
     tagline: "Service Booking & Management Platform",
-    description: "A service marketplace where verified providers can publish their offerings and customers can discover, schedule, and pay for services, with automated slot reservations and secure REST APIs.",
+    description: "A service marketplace I built where providers can list their services and customers can browse, book time slots, and pay. I designed the booking system to prevent double bookings using database transactions and built secure REST APIs for all workflows.",
     longDescription: "Servora is a modular service marketplace built with Django and Django REST Framework. It supports role-based access for providers and clients, uses atomic transactions to prevent duplicate bookings, and includes payment verification gateways.",
     technologies: ["Python", "Django", "Django REST Framework", "MySQL", "JavaScript", "REST APIs"],
     featured: true,
@@ -62,7 +62,7 @@ export const projectsData: Project[] = [
     title: "StepEase",
     category: "Web Application",
     tagline: "Accessible Task & Workflow Platform",
-    description: "A daily task management application engineered with accessible ergonomics, sensory-friendly palettes, and low-stimulation principles to eliminate cognitive overload.",
+    description: "A task management app I designed with accessibility at its core. It features drag-and-drop task ordering that works fully with a keyboard and screen readers, using calm colours and a low-stimulation layout to help users stay focused without feeling overwhelmed.",
     longDescription: "StepEase is a productivity application built with accessibility in mind (WCAG AA). It includes drag-and-drop task prioritisation, full keyboard navigation, calm colour contrast, and state synchronisation that works offline.",
     technologies: ["React", "TypeScript", "Tailwind CSS", "@dnd-kit", "Axios"],
     featured: true,
@@ -90,7 +90,7 @@ export const projectsData: Project[] = [
     title: "SmartLibrary Tracker",
     category: "Computer Vision & Web",
     tagline: "Biometric Library Attendance System",
-    description: "An automated library access system leveraging computer vision to identify enrolled students, record real-time entry and exit timestamps, and replace manual paper logs.",
+    description: "A library attendance system I developed at UEW that uses facial recognition to automatically log when students enter and leave. It replaces manual sign-in sheets with a live camera feed and a web dashboard showing real-time occupancy data.",
     longDescription: "Developed at the University of Education, Winneba (UEW), SmartLibrary Tracker automates library gate monitoring. The platform enrolls student face vectors, monitors live camera feeds, and intelligently manages entry/exit toggles with debounce algorithms.",
     technologies: ["Django", "OpenCV", "React", "TypeScript", "Python", "MySQL"],
     featured: true,
@@ -118,7 +118,7 @@ export const projectsData: Project[] = [
     title: "Python Utilities",
     category: "Desktop & CLI Tools",
     tagline: "Voice Recorder & Terminal Expense Tracker",
-    description: "A compact suite of practical Python tools: a desktop voice recording utility for capturing and exporting microphone audio, and a console-based expense tracker for personal finance ledgers.",
+    description: "Two standalone Python projects: a desktop voice recorder that captures microphone audio and saves it directly to disk, and a terminal expense tracker for logging daily spending and viewing weekly and monthly summaries.",
     longDescription: "A collection of practical Python applications demonstrating system audio capture and CLI data handling. The Voice Recorder captures microphone buffers directly to disk in formatted audio with zero latency. The Py Expense Tracker is an interactive command-line application that records daily expenditures, calculates category totals, and maintains persistent financial logs.",
     technologies: ["Python", "Audio Processing", "CLI", "File Persistence", "OOP"],
     featured: true,
@@ -140,61 +140,35 @@ export const projectsData: Project[] = [
       "Terminal Expense Tracker with daily, weekly, and monthly spending summaries.",
       "Completely self-contained with no unnecessary third-party dependencies."
     ]
-  }
-];
-
-export const skillsData: SkillCategory[] = [
-  {
-    title: "Programming",
-    description: "Core languages for backend architecture and systems development.",
-    iconName: "Code2",
-    skills: [
-      { name: "Python" },
-      { name: "JavaScript" },
-      { name: "C++" },
-      { name: "Java" },
-      { name: "PHP" }
-    ]
   },
   {
-    title: "Frontend",
-    description: "Building responsive, accessible user interfaces and modern components.",
-    iconName: "Layout",
-    skills: [
-      { name: "React" },
-      { name: "TypeScript" },
-      { name: "HTML" },
-      { name: "CSS" }
-    ]
-  },
-  {
-    title: "Backend",
-    description: "Scalable server architectures, transactional logic, and secure APIs.",
-    iconName: "Server",
-    skills: [
-      { name: "Django" },
-      { name: "Django REST Framework" },
-      { name: "ASP.NET" },
-      { name: "REST APIs" }
-    ]
-  },
-  {
-    title: "Databases",
-    description: "Relational data modeling, schema normalization, and storage.",
-    iconName: "Database",
-    skills: [
-      { name: "MySQL" },
-      { name: "PostgreSQL" }
-    ]
-  },
-  {
-    title: "Tools",
-    description: "Modern engineering tooling, version control, and API testing.",
-    iconName: "Wrench",
-    skills: [
-      { name: "Git" },
-      { name: "GitHub" },
-      { name: "Swagger" }
+    id: "beatmantra",
+    title: "BeatMantra",
+    category: "Audio Plugin",
+    tagline: "Precision Equaliser for Music Production",
+    description: "A parametric equaliser plugin I am developing for music producers and audio engineers. BeatMantra (Mantra EQ) runs inside DAWs like GarageBand and provides a real-time spectrum analyser, five fully adjustable filter bands, and preset management for mastering workflows.",
+    longDescription: "BeatMantra is an audio plugin built to give producers and mixing engineers precise control over their frequency spectrum. It features a five-band parametric EQ with adjustable filter types (Low Cut, Bell, High Shelf), a live spectrum analyser showing pre and post EQ curves, and a preset system for saving and recalling mastering chains.",
+    technologies: ["C++", "JUCE Framework", "DSP", "Audio Plugin (AU/VST)", "macOS"],
+    featured: true,
+    codeAvailableOnRequest: true,
+    image: "/images/projects/mantra-eq-poster.jpg",
+    demoVideo: "/videos/mantra-eq-demo.mp4",
+    architecture: {
+      overview: "Real-time audio processing plugin built with JUCE, compiled as AU and VST3 for DAW integration.",
+      frontend: "Custom GUI with interactive frequency response curve, draggable band nodes, and live spectrum visualisation.",
+      backend: "DSP engine processing audio buffers in real-time with cascaded biquad filters and FFT-based spectrum analysis.",
+      database: "XML-based preset storage for saving and recalling equaliser configurations.",
+      security: "Sandboxed plugin architecture running within the host DAW's process boundary."
+    },
+    challenges: [
+      "Processing audio in real-time without introducing latency or artefacts in the signal chain.",
+      "Building a responsive GUI that updates the spectrum analyser at 60fps while the DSP engine processes audio on a separate thread."
+    ],
+    highlights: [
+      "Five-band parametric EQ with Low Cut, Bell, and High Shelf filter types.",
+      "Live spectrum analyser with pre and post EQ visualisation.",
+      "Preset management for mastering and mixing workflows.",
+      "Tested and verified in GarageBand on macOS."
     ]
   }
 ];

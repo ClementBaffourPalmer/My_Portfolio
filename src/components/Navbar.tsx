@@ -21,7 +21,6 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
   const navLinks = [
     { name: 'Home', section: 'home', path: '/' },
     { name: 'About', section: 'about', path: '/#about' },
-    { name: 'Skills', section: 'skills', path: '/#skills' },
     { name: 'Projects', section: 'projects', path: '/#projects' },
     { name: 'Experience', section: 'experience', path: '/#experience' },
     { name: 'Blog', section: 'blog', path: '/blog' },
@@ -33,7 +32,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
       setScrolled(window.scrollY > 20);
 
       if (isHomePage) {
-        const sections = ['home', 'about', 'skills', 'projects', 'experience', 'blog-preview', 'contact'];
+        const sections = ['home', 'about', 'projects', 'experience', 'blog-preview', 'contact'];
         const scrollPosition = window.scrollY + 140;
 
         for (let i = sections.length - 1; i >= 0; i--) {

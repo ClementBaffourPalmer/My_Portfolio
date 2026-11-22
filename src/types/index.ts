@@ -21,6 +21,7 @@ export interface Project {
   liveUrl?: string;
   featured: boolean;
   image?: string;
+  demoVideo?: string;
   badge?: string;
   codeAvailableOnRequest?: boolean;
 }

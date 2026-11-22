@@ -92,9 +92,6 @@ export const Footer: React.FC<FooterProps> = ({ darkMode }) => {
                 <Link to="/#about" className={`transition-colors ${darkMode ? 'text-neutral-400 hover:text-electric' : 'text-neutral-700 hover:text-electric font-medium'}`}>About</Link>
               </li>
               <li>
-                <Link to="/#skills" className={`transition-colors ${darkMode ? 'text-neutral-400 hover:text-electric' : 'text-neutral-700 hover:text-electric font-medium'}`}>Skills</Link>
-              </li>
-              <li>
                 <Link to="/#projects" className={`transition-colors ${darkMode ? 'text-neutral-400 hover:text-electric' : 'text-neutral-700 hover:text-electric font-medium'}`}>Projects</Link>
               </li>
               <li>

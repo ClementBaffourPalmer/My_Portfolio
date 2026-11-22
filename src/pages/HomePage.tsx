@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Hero } from '../components/Hero';
 import { About } from '../components/About';
-import { Skills } from '../components/Skills';
 import { Projects } from '../components/Projects';
 import { Experience } from '../components/Experience';
 import { HomeBlogSection } from '../components/HomeBlogSection';
@@ -20,7 +19,6 @@ export const HomePage: React.FC<HomePageProps> = ({ darkMode }) => {
     <>
       <Hero darkMode={darkMode} />
       <About darkMode={darkMode} />
-      <Skills darkMode={darkMode} />
       <Projects darkMode={darkMode} />
       <Experience darkMode={darkMode} />
       <HomeBlogSection darkMode={darkMode} />
