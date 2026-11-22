@@ -40,7 +40,7 @@ export const HeroBackgroundVideo: React.FC<HeroBackgroundVideoProps> = ({ darkMo
         if (e.matches) {
           video.pause();
         } else {
-          video.play().catch(() => {});
+          video.play().catch(() => { });
         }
       };
       mediaQuery.addEventListener('change', handleMotionChange);
@@ -68,9 +68,8 @@ export const HeroBackgroundVideo: React.FC<HeroBackgroundVideoProps> = ({ darkMo
           onCanPlay={handleVideoReady}
           onPlaying={handleVideoReady}
           onError={() => setVideoError(true)}
-          className={`absolute inset-0 w-full h-full object-cover hero-video-surface ${
-            videoLoaded ? '' : 'opacity-0'
-          }`}
+          className={`absolute inset-0 w-full h-full object-cover hero-video-surface ${videoLoaded ? '' : 'opacity-0'
+            }`}
         >
           <source src="/videos/hero-background.mp4" type="video/mp4" />
         </video>
